@@ -1,7 +1,7 @@
 # 🕵️ AeroSecure Incident Report: **Who is the Intruder?**  
 
 🚀 **Mission:** Protect StratoJet’s **top-secret electric propulsion technology** from cyber threats.  
-🔍 **Challenge:** Something doesn’t add up in the AWS environment.  
+🔍 **Challenge:** Find the compromised account. 
 🛡️ **Your Role:** Follow the clues, analyze the evidence, and uncover the truth.  
 
 ---
@@ -71,11 +71,14 @@ Coincidence? Or something **more sinister?**
 🔐 Workstation quarantined.  
 📂 Digital forensics launched.  
 
-The truth? **A sophisticated deception.** Someone infiltrated AeroSecure under **false pretenses**—a plant, a ghost, a mole.  
+The truth? **A sophisticated deception.** Someone infiltrated AeroSecure under **false pretenses** ; a plant, a ghost, a mole.  
 
-Their **real employer? Unknown.**  
-Their **mission? Stolen.**  
-Their **identity? Erased.**  
+- Their **real employer? Unknown.**  
+- Their **mission? Stolen.**  
+- Their **identity? Erased.**  
+---
+
+## **➡️ Ready to find which account has been compromised?**
 
 ---
 

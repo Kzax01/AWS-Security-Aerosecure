@@ -33,17 +33,17 @@ You’ll implement advanced IAM activity monitoring using **AWS IAM** and **AWS 
 
 ---
 
-## 🛠 What We’ll Cover
+## 🛠 What We’ll Cover :
 - Generating an **IAM Credential Report** for auditing.  
 - Using **Access Advisor** to identify unused permissions.  
 - Setting up **CloudTrail** to monitor activities.
 
-## 🎯 Learning Objectives
+## 🎯 Learning Objectives :
 - Understand IAM monitoring techniques.
 - Detect unused or insecure access.
 - Audit AWS actions for enhanced security.
 
-## 🚀 Expected Outcomes
+## 🚀 Expected Outcomes :
 - ✅ Active audit trail via **CloudTrail** ensuring traceability for **OrbitalX satellites**.
 - 📌 Monitoring of non-compliant access.
 - 📌 Optimized IAM permissions.

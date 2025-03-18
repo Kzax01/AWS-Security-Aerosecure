@@ -14,7 +14,7 @@ The mission is to create a **customer-managed key** in **AWS KMS**, configure it
 ## 🚨 Problem
 To ensure the confidentiality of sensitive data stored in **Amazon S3**, AeroSecure needs to enable encryption for specific files and enforce strict access control. The solution will involve using **AWS Key Management Service (KMS)** to create and manage encryption keys that secure the data and allow controlled access.
 
-## 🎯 Lab Objectives
+## 🎯 The Goals :
 1️⃣ Create a **symmetric KMS key** for encryption.  
 2️⃣ Apply the KMS key as the **default encryption method** for an S3 bucket.  
 3️⃣ Implement **key deletion scheduling** to manage the lifecycle of the encryption key.
