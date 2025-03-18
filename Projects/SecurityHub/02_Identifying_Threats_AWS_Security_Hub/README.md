@@ -1,45 +1,81 @@
-# Part 2: Identifying and Remediating Threats with AWS Security Hub 🔍🛡️
+# 🕵️ AeroSecure Incident Report: **Who is the Intruder?**  
 
-**Context**: **Security Incident at AeroSecure**  
-After setting up AWS Security Hub for monitoring (Part 1), AeroSecure detects suspicious activity: EC2 instances exposed with risky firewall rules and unauthorized attempts to exfiltrate sensitive data.
-
----
-
-## Attack Simulation Breakdown 🚨
-
-### 1. **Exploitation Phase** 🔓  
-- Attackers exploited misconfigured security groups on EC2 instances for aircraft surveillance.  
-- SSH (port 22) was open to **0.0.0.0/0**, allowing brute-force attempts.
-
-### 2. **Deploying Honeypots 🪤**  
-- Honeypots (fake vulnerable instances) were deployed in an isolated VPC to capture attacker activity.  
-- Logs include IPs, techniques, and commands used by attackers.
-
-### 3. **Simulated Data Exfiltration 🛑**  
-- Compromised IAM keys (e.g., leaked GitHub keys) allowed access to an S3 bucket containing sensitive data.  
-- **Security Hub** triggered an alert via **EventBridge** and **SNS** for abnormal access.
+🚀 **Mission:** Protect StratoJet’s **top-secret electric propulsion technology** from cyber threats.  
+🔍 **Challenge:** Something doesn’t add up in the AWS environment.  
+🛡️ **Your Role:** Follow the clues, analyze the evidence, and uncover the truth.  
 
 ---
 
-## Remediation Phase 🚑
+## **🔒 Project Overview**
 
-✅ **1. Investigate via AWS Security Hub**  
-- Identify the attacker’s IP and activity using **CloudTrail** and **GuardDuty** logs.
+### 🚨 **Objective:** 
+Simulate and analyze a security breach using **AWS Security Hub** to track and neutralize the threat. 
 
-✅ **2. Countermeasures**  
-- Block malicious IPs with **AWS WAF** and **VPC ACLs**.  
-- Revoke and rotate IAM keys.  
-- Close open ports and apply **least privilege** access policies.
+### 🔍 **Step 1: Enable AWS Security Hub**  
+Set up security monitoring across the AWS environment to track and identify critical findings. 🛡️
 
-✅ **3. Automate Response**  
-- Use **AWS Lambda** to automatically disable suspicious access.  
-- Integrate **AWS Systems Manager Automation** for immediate remediation of dangerous configurations.
+### 💥 **Step 2: Deploy Honeypots**  
+Deploy decoy systems to lure the intruder into triggering alerts. 🎯
+
+### 🕵️‍♂️ **Step 3: Investigate Findings**  
+Use **AWS Security Hub** to investigate abnormal patterns and pinpoint the compromised user. 🔎
+
+### ⚡ **Step 4: Execute Remediation**  
+Take swift action to neutralize the threat and secure the AWS environment. 🔒
 
 ---
 
-## Why This Matters 🌍
+## **👥 Team Structure**
 
-AWS Security Hub consolidates security findings, helping quickly detect, analyze, and remediate threats. It provides a unified view to enhance threat response and security management.
+AeroSecure assembles a top-tier team to investigate and protect StratoJet:
+
+- **Martina Rodriguez** - Cloud Security Architect  
+  *Designing a secure AWS architecture. 8 years in aerospace IT security.*
+
+- **George Washington** - IAM and Compliance Specialist  
+  *Implementing IAM policies. Compliance expert for the aerospace industry.*
+
+- **Edward Thompson** - Security Operations Lead  
+  *4 months at AeroSecure, 12 years in security ops. Previous role unverifiable.*
+
+---
+
+## **🚨 The First Red Flag**  
+🔸 AWS Security Hub starts flagging **unusual access patterns**.  
+🔸 Data is being accessed at odd hours.  
+🔸 Someone is moving **too quietly** through the system.  
+
+Is it just noise? Or is there an **intruder among us?**  
+
+## **🎣 The Trap**  
+AeroSecure deploys a **honeypot**—a decoy environment mimicking sensitive propulsion data.  
+
+And then… the intruder takes the bait.  
+
+## **💀 The Breach**  
+🔸 Someone is scanning the **honeypot databases**.  
+🔸 Files are being copied to **temporary locations**.  
+🔸 It’s happening during **business hours**, using legitimate credentials.  
+
+Who is behind this?  
+
+## **🕵️ The Investigation**  
+🔎 **One team member** has access beyond their role.  
+🔎 Their **background check** reveals inconsistencies.  
+🔎 Logs show **unauthorized software** on their workstation.  
+
+Coincidence? Or something **more sinister?**  
+
+## **⚖️ The Verdict**  
+🚫 Access revoked.  
+🔐 Workstation quarantined.  
+📂 Digital forensics launched.  
+
+The truth? **A sophisticated deception.** Someone infiltrated AeroSecure under **false pretenses**—a plant, a ghost, a mole.  
+
+Their **real employer? Unknown.**  
+Their **mission? Stolen.**  
+Their **identity? Erased.**  
 
 ---
 
@@ -51,7 +87,6 @@ AWS Security Hub consolidates security findings, helping quickly detect, analyze
 | **Honeypot**               | Decoy systems designed to trap attackers and gather intel on attack methods.                           | Provides valuable insights to strengthen security and trap attackers in controlled environments.             |
 | **IAM Key Compromise**     | Leakage or theft of IAM keys, enabling unauthorized access to AWS resources.                           | Protects sensitive data and ensures only authorized users have access to critical resources.                  |
 | **EventBridge**            | Serverless event bus service that enables event-driven architecture.                                   | Facilitates automated responses to incidents, reducing manual intervention and accelerating reaction time.     |
-| **WAF (Web Application Firewall)** | Protects web applications from common attacks like SQL injection and XSS.                        | Stops malicious traffic before it reaches your applications, protecting against potential breaches.            |
 
 ---
 
