@@ -1,4 +1,10 @@
-# 🕵️ AeroSecure Incident Report: **Who is the Intruder?**  
+# 📌 How to Identify and Respond to Threats with AWS Security Hub
+
+Welcome to this new project! This one will be fun! 
+
+---
+
+## 🕵️ AeroSecure Incident Report: **Who is the Intruder?**  
 
 🚀 **Mission:** Protect StratoJet’s **top-secret electric propulsion technology** from cyber threats.  
 🔍 **Challenge:** Find the compromised account. 

@@ -1,6 +1,8 @@
-# 📌 GitHub Project: PART 2- Monitoring, Auditing, and Logging Users and Resource Usage in AWS IAM
+# 📌 PART 2: How to Monitor, Audit, and Log Users and Resource Usage in AWS IAM
 
-Welcome to the AWS IAM Access Monitoring Lab! 🚀
+Welcome to the 2nd part of AWS IAM Access Monitoring project! 🚀
+
+---
 
 ## 🔍 Scenario: Access Monitoring for AeroSecure
 
@@ -51,7 +53,7 @@ You’ll implement advanced IAM activity monitoring using **AWS IAM** and **AWS 
 
 ---
 
-This lab helps you safeguard AeroSecure’s cloud infrastructure and ensures compliance with the highest security standards. 🚀
+This project helps you safeguard your cloud infrastructure and ensures compliance with the highest security standards. 🚀
 
 ---
 ## 💬 Let’s Connect!  

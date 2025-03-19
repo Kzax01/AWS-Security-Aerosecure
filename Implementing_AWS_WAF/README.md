@@ -1,6 +1,10 @@
-# 📌 Using AWS WAF to Secure Aerospace Web Applications
+# 📌 How to Implement AWS WAF for Web Application Security
 
-## 🌍 Context: AeroSecure Aerospace and the Need for Web Security  
+Welcome to this new project! 
+
+---
+
+## 🌍 Context: AeroSecure and the Need for Web Security  
 In the ever-evolving aerospace industry, real-time data exchange is critical for air traffic controllers, satellite communications, and autonomous drone operations. **Aerosecure**, a leading company specializing in aerospace security, is deploying a **cloud-native web application** to monitor and manage aircraft trajectories in real time.  
 
 However, exposing such a critical application to the internet makes it a prime target for cyber threats, including:  

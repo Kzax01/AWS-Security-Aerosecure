@@ -1,10 +1,10 @@
-# 🚀 AeroSecure Scenario: Creating and Securing Customer Managed Keys with AWS KMS
+# 📌 How to use AWS KMS : Creating and Securing Customer Keys
 
 Welcome to the exciting world of cloud security!
 
 ---
 
-## 🛰 Context
+## 🚀 AeroSecure Scenario: Creating and Securing Customer Managed Keys with AWS KMS
 
 At **AeroSecure**, security teams have identified that some files stored in **Amazon S3** are not adequately protected due to the lack of default encryption methods.  
 The mission is to create a **customer-managed key** in **AWS KMS**, configure it as the default encryption method for a specific S3 bucket, and then implement a secure key lifecycle management process.
