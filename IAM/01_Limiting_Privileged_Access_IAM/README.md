@@ -1,4 +1,4 @@
-# 📌 PART1 - How to Secure Access with Permissions Boundaries in AWS IAM 
+## 📌 PART 1 - How to Secure Access with Permissions Boundaries in AWS IAM.
 
 Welcome to the 1st part of this AWS IAM Permissions Boundaries project! 🚀
 

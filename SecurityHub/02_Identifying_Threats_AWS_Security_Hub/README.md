@@ -1,4 +1,4 @@
-# 📌 How to Identify and Respond to Threats with AWS Security Hub
+## 📌 How to Identify and Respond to Threats with AWS Security Hub
 
 Welcome to this new project! This one will be fun! 
 

@@ -1,4 +1,8 @@
-# Part 1 : How to Implement AWS Security Hub for Threat Detection
+## Part 1 : How to Implement AWS Security Hub for Threat Detection
+
+Welcome to this new project! 
+
+---
 
 ## Context: Compliance & Proactive Threat Detection 🛡️  
 AeroSecure has migrated its critical systems to AWS, hosting applications for aircraft maintenance, telemetry, and real-time monitoring. With this transition, new security risks have emerged:  

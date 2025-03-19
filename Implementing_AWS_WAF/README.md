@@ -1,4 +1,4 @@
-# 📌 How to Implement AWS WAF for Web Application Security
+## 📌 How to Implement AWS WAF for Web Application Security
 
 Welcome to this new project! 
 
