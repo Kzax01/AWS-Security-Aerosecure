@@ -1,5 +1,7 @@
 # 🚀 AeroSecure: Bridging Aerospace & Cloud Security : Welcome !
 
+[BannerKenza](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/banner%20kenza%20aerospace.gif) 
+
 ## 👩‍💻 Who Am I?  
 
 Hi there! I’m Kenza, a **Cloud Security Engineer** and an **AWS Community Builder in Security & Identity**. 
