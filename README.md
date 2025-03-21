@@ -56,6 +56,8 @@ I also share insights, tips on how to protect your cloud on **Medium** (in Engli
 - [🌊 DDoS Attacks in AWS Cloud: When Your Server Drowns Under Requests 💥](https://medium.com/aws-tip/ddos-attacks-in-aws-cloud-when-your-server-drowns-under-requests-825c3b265016)
 - [💰Cryptojacking: When Attackers Hijack Your Cloud to Mine Money🏴‍☠️](https://medium.com/@Kenza.In.The.Cloud/cryptojacking-when-hackers-hijack-your-cloud-to-mine-money-️-fd0f316154cb)
 
+  ➡ [Cloud Sec - Medium in French](https://medium.com/@Kenza.In.The.Cloud.FR)
+
 ➡ **This is just the beginning, more exciting projects & articles coming soon!** 🚀
 
 ---
