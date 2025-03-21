@@ -5,72 +5,44 @@ Welcome back to this exciting project!
 ## 🎯 The Mission :
 As we seen earlier, the scenario focuses on ensuring the confidentiality of sensitive data stored in **Amazon S3** for **AeroSecure**, where your task is to enable encryption using **AWS KMS**, apply it to an S3 bucket, and implement key deletion scheduling for effective lifecycle management.
 
-## 📋 Table of Contents
-- 🗝️ [Create KMS Key](#create-a-single-region-symmetrical-kms-key)
-- 🔒 [Configure S3 Encryption](#set-up-amazon-s3-default-encryption-via-kms)
-- ⏱️ [Schedule Key Deletion](#schedule-aws-kms-key-deletion)
-- 💡 [Security Benefits](#why-these-steps-matter)
+# 📖 Table of Contents  
+
+- [⚙️ Lab Steps](#️-lab-steps)  
+  - [🔹 Creating an S3 Bucket](#-creating-an-s3-bucket)  
+  - [🔹 Creating a KMS Key](#-creating-a-kms-key)  
+  - [🔹 Enabling SSE-KMS Encryption](#-enabling-sse-kms-encryption)  
+  - [🔹 Verifying Encryption](#-verifying-encryption)  
+  - [🔹 Scheduling Key Deletion](#-scheduling-key-deletion)  
+
+- [⚠️ Considerations](#-considerations)  
+- [🎯 Summary](#-summary)  
+- [🏆 Conclusion](#-conclusion)  
+
 
 ---
+# ⚙️ Project's Steps  
 
-## 🗝️ Create a Single-Region Symmetrical KMS Key 
+## 🔹 1. Creating an S3 Bucket  
+📍 **Actions:**  
+1. Navigate to **Amazon S3** > Create a bucket.  
+2. Provide a **unique name** for the bucket.  
+3. Keep the **default settings** and create the bucket.  
 
-1. **Access Amazon S3**
-   - Navigate to Amazon S3 using the **Services** menu or the unified search bar
-   - This is your starting point for creating a KMS key that will be used with S3
-   
+📌 **Why?**  
+The bucket will be used to store **sensitive files**, which will be encrypted with **AWS KMS**.  
 
-2. **Verify your bucket**
-   - Confirm you see a bucket that starts with the **cloud-user** prefix
-   - This ensures you're working with the correct resources for this lab
-   
+## 🔹 2. Creating a Symmetric KMS Key  
+📍 **Actions:**  
+1. Go to **AWS KMS** > Create a key.  
+2. Select **Symmetric Key** and **Encrypt/Decrypt**.  
+3. Choose **Single-Region Key** (AeroSecure’s security requirement).  
+4. Assign an **alias** to the key (e.g., `cloud_user`).  
+5. Define **key administrators** (e.g., `Kzax01`).  
+6. Apply the **access control policy**.  
+7. Create the key.  
 
-3. **Open bucket properties**
-   - Click on the bucket to open it
-   - Navigate to the **Properties** tab
-   - The Properties tab contains configuration settings for your bucket
-   
 
-4. **Access KMS service**
-   - Using the search bar, type and select **Key Management Service**
-   - KMS is AWS's service for creating and managing encryption keys
-   
-
-5. **Initiate key creation**
-   - Under **Get started now**, click **Create a key**
-   - This begins the workflow for creating a new Customer Managed Key (CMK)
-   
-
-6. **Select key type**
-   - Under **Key type**, ensure **Symmetric** is selected
-   - Symmetric keys use the same key for both encryption and decryption
-   
-
-7. **Define key usage**
-   - Under **key usage**, ensure **Encrypt and decrypt** is selected
-   - This determines what operations the key can perform
-   
-
-8. **Configure advanced options**
-   - Under **Advanced options**, ensure:
-     * **Regionality** is set to **Single-Region key**
-     * **Key material origin** is set to **KMS**
-   - Single-region keys exist in one AWS region only
-   - KMS key material origin means AWS generates the key material
-   
-
-9. **Proceed to key configuration**
-   - Click **Next**
-   - This takes you to the administrative settings
-   
-
-10. **Name your key**
-    - Under **Alias**, enter *any name you want* (Mine is kzax01)
-    - The alias provides a user-friendly name for your key
-    
-
-11. **Continue to "edit key policy"**
-    - I used this policy :
+➡️ FYI  I used this policy :
 ```
 {
   "Id": "key-consolepolicy-3",
@@ -117,125 +89,78 @@ As we seen earlier, the scenario focuses on ensuring the confidentiality of sens
 > This policy grants full access to AWS KMS actions for the root user of the specified AWS account. 
 It also allows a specific IAM user to manage key-related actions, including creating, updating, deleting, and rotating keys, but restricts them to those specific KMS operations.
 
-12. **Assign key administrators**
-    - Under **Key administrators**, click on the checkbox next to **your user**
-    - Key administrators can manage but not use the key for cryptographic operations
-    
 
-13. **Configure deletion settings**
-    - Under **Key deletion**, ensure **Allow key administrators to delete this key** is selected
-    - This permits authorized users to schedule key deletion
-    
+📌 **Why?**  
+This key will encrypt **sensitive files** in S3 and restrict access using **IAM/KMS policies**.  
 
-14. **Complete key creation**
-    - Click **Next** until you reach the **Review** page
-    - Review all settings and click **Finish**
-    - This creates your KMS key with the specified configuration
+## 🔹 3. Attaching the KMS Key to the S3 Bucket (SSE-KMS Encryption)  
+📍 **Actions:**  
+1. Navigate to **S3**, select the bucket.  
+2. Go to the **Properties** tab.  
+3. In **Default Encryption**, click **Edit**.  
+4. Select **Server-side encryption with AWS Key Management Service keys (SSE-KMS)**.  
+5. Choose the **created KMS key** (`alias/cloud_user`).  
+6. Enable **Bucket Key** to reduce KMS access costs.  
+7. Save the changes.  
 
----
+📌 **Why?**  
+Ensures that all **uploaded objects** in this bucket are automatically **encrypted** using the defined **KMS key**.  
 
-## Set Up Amazon S3 Default Encryption via KMS 🔒
+## 🔹 4. Encryption Verification  
+📍 **Actions:**  
+1. Upload a file to the **S3 bucket**.  
+2. Click on the file and go to **Server-side encryption settings**.  
+3. Verify that **SSE-KMS** with the **alias/cloud_user** key is applied.  
 
-1. **Return to S3 service**
-   - Navigate to Amazon S3 using the shortcut bar or the unified search bar
-   - Click on your bucket ; Mine was called kzax01bucket
-   - Navigate to the **Properties** tab
-> This is where you'll configure encryption settings 
+📌 **Why?**  
+This ensures that all **stored objects** are properly **protected** by AWS KMS.  
 
-2. **Edit encryption settings**
-   - Scroll down to **Default encryption**
-   - Click **Edit**
-   - Default encryption ensures all objects uploaded to the bucket are automatically encrypted
-   
+## 🔹 5. Scheduling the Deletion of the KMS Key  
+📍 **Actions:**  
+1. Go back to **AWS KMS**.  
+2. Select the **cloud_user** key.  
+3. Navigate to **Key Actions** > **Schedule Key Deletion**.  
+4. Set a **waiting period** (between **7 and 30 days**).  
+5. Check the confirmation box and confirm deletion.  
 
-3. **Configure encryption settings**
-   - Under **Default encryption**, set the following values:
-     * **Encryption key type**: Select **AWS Key Management Service key (SSE-KMS)**
-     * **AWS KMS key**: Select **Choose from your AWS KMS keys**
-     * Under **Available AWS KMS keys**, click the dropdown menu and select **cloud_user**
-     * **Bucket Key**: Select **Enable**
-> SSE-KMS provides enhanced security over S3's default encryption.
-Bucket Key reduces the cost of KMS operations by reusing encryption keys.
-   
-
-4. **Save encryption configuration**
-   - Click **Save changes**
-   - This applies your encryption settings to the bucket
-   
-
-5. **Test encryption with a file upload**
-   - Navigate to the **Objects** tab
-   - Click on **Upload**
-   - This lets you verify the encryption settings are working
-   
-
-6. elect and upload a file**
-   - Choose any file from your computer
-   - Click **Upload** 
-   - This sends the file to S3 where it will be encrypted with your KMS key.
-   
-
-7. **Complete the upload process**
-   - Once you see the **Upload succeeded** banner
-   - Click **Close** in the upper right corner
-   - This returns you to the objects listing
-   
-
-8. **Verify encryption settings**
-   - Click on the file you uploaded
-   - Scroll down to **Server-side encryption settings**
-   - Confirm you see your KMS key listed as the encryption method
-   - This verifies successful implementation of KMS encryption
+📌 **Why?**  
+A **deleted key** makes all **encrypted data permanently inaccessible**.  
+The **waiting period** allows cancellation in case of an error.  
 
 ---
 
-## Schedule AWS KMS Key Deletion ⏱️
+# ⚠️ Constraints and Considerations  
 
-1. **Access your KMS key**
-   - Under **Encryption key ARN**, click on the key ARN
-   - This takes you to the key management page in KMS
-   
+## 🔹 KMS Key Deletion:  
+- Once a key is **permanently deleted**, files encrypted with it **cannot be accessed**.  
+- Deletion can be **canceled** as long as the **waiting period (7-30 days)** has not expired.  
 
-2. **Initiate key deletion**
-   - In the upper right corner, click on the **key actions** dropdown menu
-   - Select **Schedule key deletion**
-   - Scheduling deletion starts a mandatory waiting period before the key is permanently removed
-   
+## 🔹 Using the Bucket Key:  
+- Reduces costs by **minimizing calls** to AWS KMS.  
+- **Not compatible** with **DSSE-KMS** (Double Server-Side Encryption).  
 
-3. **Set waiting period**
-   - Under **Waiting period**, enter *7* days
-   - This waiting period gives you time to cancel deletion if needed
-   - After this period, the key will be permanently deleted
-   
-
-4. **Confirm deletion**
-   - Under **Confirmation**, select the checkbox next to:
-   - **Confirm that you want to schedule these keys for deletion after a 7 day waiting period.**
-   - This acknowledgment helps prevent accidental key deletion
-   
-
-5. **Complete scheduling**
-   - Click **Schedule deletion**
-   - This finalizes the deletion schedule
-   - The key will be deleted after the 7-day waiting period
+## 🔹 Security & IAM:  
+- Always **restrict** access to **KMS keys** with a **strict IAM policy**.  
+- **Never** expose a **KMS key** to **public access**.  
 
 ---
 
-## Why These Steps Matter / What have we learned ? 💡
+# 🎯 Summary of Completed Actions  
+✅ Created an **S3 bucket** for storing **sensitive files**.  
+✅ Created and configured a **KMS key** for **data encryption**.  
+✅ Enabled **SSE-KMS encryption** on the S3 bucket.  
+✅ Verified that **encryption** is properly applied.  
+✅ Scheduled the **KMS key deletion** for **secure lifecycle management**.  
 
-- **Creating a CMK** gives you full control over your encryption keys instead of using AWS-managed keys
+---
 
-- **Using KMS with S3** provides:
-  - Enhanced security for sensitive data
-  - Compliance with data protection regulations
-  - Detailed audit logs of key usage
+# 🏆 Conclusion  
+You have successfully **secured AeroSecure’s sensitive data** by implementing **strong encryption** with **AWS KMS and Amazon S3**. 🚀  
+This type of implementation is **critical in aerospace**, where protecting **communications and critical systems** is a top priority.  
 
-- **Bucket Keys** reduce the cost of KMS by decreasing the number of API calls
 
-- **Proper key deletion** ensures:
-  - Security best practices are followed
-  - Data encrypted with deleted keys becomes unrecoverable
-  - The waiting period prevents accidental deletion of keys still in use
+
+
 
 ---
 
