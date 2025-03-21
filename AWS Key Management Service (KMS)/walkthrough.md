@@ -99,7 +99,7 @@ This key will encrypt **sensitive files** in S3 and restrict access using **IAM/
 2. Go to the **Properties** tab.  
 3. In **Default Encryption**, click **Edit**.  
 4. Select **Server-side encryption with AWS Key Management Service keys (SSE-KMS)**.  
-5. Choose the **created KMS key** (`alias/cloud_user`).  
+5. Choose the **created KMS key**  
 6. Enable **Bucket Key** to reduce KMS access costs.  
 7. Save the changes.  
 
