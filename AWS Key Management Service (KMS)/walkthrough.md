@@ -23,7 +23,6 @@ As we seen earlier, the scenario focuses on ensuring the confidentiality of sens
 
 📍 **Actions:**  
 1. Navigate to **Amazon S3** > Create a bucket.  
-![s3](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/s3%20page.png)
 2. Provide a **unique name** for the bucket.  
 3. Keep the **default settings** and create the bucket.  
 
