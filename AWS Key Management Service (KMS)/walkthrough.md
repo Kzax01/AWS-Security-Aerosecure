@@ -34,11 +34,11 @@ The bucket will be used to store **sensitive files**, which will be encrypted wi
 1. Go to **AWS KMS** > Create a key.  
 ![config key](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.1.png)
 2. Select **Symmetric Key** and **Encrypt/Decrypt**.  
-3. Choose **Single-Region Key** (AeroSecure’s security requirement).  
-![alias](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.2.png)
+3. Choose **Single-Region Key** (AeroSecure’s security requirement).
 4. Assign an **alias** to the key  
+![alias](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.2.png)
+5. Define **key administrators**
 ![define key admin](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.3.png)
-5. Define **key administrators**    
 6. Apply the **access control policy**.  
 ![key policy](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.4.png)
 7. Create the key.  
