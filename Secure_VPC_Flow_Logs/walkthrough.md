@@ -240,7 +240,7 @@ _You'll need to add your S3 bucket URL but this time; it should end by your regi
        action,
        protocol
      FROM vpc_flow_logs
-     WHERE dt = '2025-03-17'  -- Filtre sur la partition correcte
+     WHERE dt = '2025-03-17'  
      AND action = 'REJECT' 
      AND protocol = 6
      ORDER BY sourceaddress
