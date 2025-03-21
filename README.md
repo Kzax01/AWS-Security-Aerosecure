@@ -23,13 +23,29 @@ The aerospace sector is **under attack**, and the risks are higher than ever:
 - 🛰 **Satellite Hacking** – Communication disruptions, GPS spoofing... yes, it’s happening.  
 - 📜 **Regulatory Pressure** – Compliance (DO-326A, NIST, EASA) is key, but compliance alone won’t stop hackers.  
 
-## 💡 What This Project Brings to the Table  
+# 🔐 Security in Action: Hands-On Projects
 
-AeroSecure is more than just a project—it’s a **call to action**. Cybersecurity in aerospace isn’t just about protecting data; it’s about **safeguarding innovation, national security, and even human lives**.  
+AeroSecure is more than just a theoretical project. Each security challenge is addressed with:
 
-🔹 **Cloud security strategies** tailored for aerospace.  
-🔹 **Real-world attack scenarios** and hands-on threat modeling.  
-🔹 **Risk assessments** that expose industry vulnerabilities.  
+✅ **An explanatory README** – Context, challenges, storytelling, and best practices.  
+✅ **A detailed Walkthrough** – Step-by-step with screenshots and demonstrations.
+
+## 🔑 Data Protection & Compliance
+- 🔹 [**AWS Key Management Service (KMS)** – Secure Your Secrets](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/AWS%20Key%20Management%20Service%20(KMS))
+
+## 📂 IAM Security
+-  🔹 [**Limiting Privileged Access in AWS IAM**](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/IAM/01_Limiting_Privileged_Access_IAM)
+-  🔹 [**Monitoring Users and Activity in AWS IAM**](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/IAM/02_Monitoring_Users_AWS_IAM)
+
+## 🌐 Network & Application Security
+- 🔹 [**Implementing AWS WAF** – Protecting Applications from Attacks](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/Implementing_AWS_WAF) 
+- 🔹 [**Secure VPC Flow Logs** – Monitoring & Threat Detection](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/Secure_VPC_Flow_Logs)
+
+## 🚨 Threat Detection & Incident Response
+-  🔹 [**Implementing AWS Security Hub**](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/SecurityHub/01_Implementing_AWS_Security_Hub)
+-  🔹 [**Identifying & Remediating Threats in AWS Security Hub**](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub)
+
+---
 
 ## 📢 Want to Go Further?  
 
@@ -40,6 +56,7 @@ I also share insights, tips on how to protect your cloud on **Medium** (in Engli
 - [🌊 DDoS Attacks in AWS Cloud: When Your Server Drowns Under Requests 💥](https://medium.com/aws-tip/ddos-attacks-in-aws-cloud-when-your-server-drowns-under-requests-825c3b265016)
 - [💰Cryptojacking: When Attackers Hijack Your Cloud to Mine Money🏴‍☠️](https://medium.com/@Kenza.In.The.Cloud/cryptojacking-when-hackers-hijack-your-cloud-to-mine-money-️-fd0f316154cb)
 
+➡ **This is just the beginning, more exciting projects & articles coming soon!** 🚀
 
 ---
 
