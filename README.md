@@ -2,7 +2,7 @@
 
 ## 👩‍💻 Who Am I?  
 
-Hi there! I’m Kenza, an **Aspiring Cloud Security Engineer** and an **AWS Community Builder in Security & Identity**. 
+Hi there! I’m Kenza, a **Cloud Security Engineer** and an **AWS Community Builder in Security & Identity**. 
 My journey in the Cloud & Cybersecurity has always been driven by a deep curiosity for **high-stakes industries** where security is **not an option, but a necessity**.  
 
 ## 🌍 Why Aerospace? Why Cloud Security?  
