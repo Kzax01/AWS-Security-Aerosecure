@@ -13,133 +13,97 @@ As we seen earlier, the scenario involves monitoring access for AeroSecure, wher
 
 ---
 
-## Step 1 : Generate a Credential Report 📊
+# 🔥 IAM & CloudTrail Security Monitoring  
 
-1. **Navigate to IAM dashboard**
-   - Log into AWS Console
-   - Find and select IAM from the services menu
-   - This takes you to the central location for managing identities and access
-   
+## 🚀 Step 1: Generate a Credential Report  
+**IAM → Credential Report**  
 
-2. **Access Credential Report section**
-   - From the left menu, click **Credential report**
-   - This report provides security-related information for all users in your account
-   - Information includes password usage, MFA status, access key age, and last activity timestamps
-   
+![credreport](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/credentialreportdl.png)
 
-3. **Generate and download the report**
-   - Click **Download Report** to save the CSV file 
-   - Open the file using Excel, Numbers, or any spreadsheet program
-   - This report helps identify security risks like unused credentials, missing MFA, or old passwords that should be rotated
-   
+
+1. Click **"Download Report"** 📥 (CSV contains MFA status, password rotation, last login).  
+> - **Why?** → Identify inactive users, accounts without MFA, and potential security risks.  
+
+![reportexample](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/01credreport.png)
 
 ---
 
-## Step 2 :  Utilize the Access Advisor Tab 🔎
+## 🔍 Step 2: Analyze User Activity (Access Advisor)  
+**IAM → Users → Create users → select one → Access Advisor**  
 
-1. **Return to IAM Dashboard**
-   - Navigate back to the main IAM page
-   - Access Advisor helps you understand which permissions are actually being used
-   
+![lastaccessed](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/2-last-accessed.png)
 
-2. **Access User List**
-   - From the left menu, click **Users**
-   - This displays all IAM users in your account
-   
-
-3. **Select specific user**
-   - Click on **developer-1** user
-   - This opens the detailed configuration page for this specific user
-   
-
-4. **View Access Advisor data**
-   - Click the **Access Advisor** tab
-   - Review the list of services this user is allowed to access
-   - Check the "Last accessed" column to see when each service was last used
-   - Services with permissions but no recent usage might indicate over-privileged users
-   - This information is crucial for implementing least privilege principles
-   
+- Check the **"Last accessed"** column to detect unused permissions.  
+> - **Why?** → Remove unnecessary access to minimize the attack surface.  
 
 ---
 
-##  Step 3 : Create a Trail using CloudTrail 🛤️
+## 🚀 Step 3: Create a CloudTrail Trail  
+**Navigate to AWS CloudTrail → Dashboard → Create trail**  
 
-1. **Navigate to CloudTrail**
-   - Return to the AWS Management Console
-   - Find and select CloudTrail from the services menu
-   - CloudTrail records API calls and account activity for monitoring and compliance
-   
+### ➡ Configure Trail Attributes  
 
-2. **Review existing events**
-   - On the left menu, click **Event history**
-   - This shows recent API activity in your account
-   - You can filter by event name, user, resource, or time period
-   
+![step1-ct](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/4.1-CT.png)
+- **Name the Trail name that you're creating**
+- **Storage location:** Create a new S3 bucket (for long-term log storage).  
+- **Trail log bucket and folder:** Default bucket name (AWS generates a secure name).
+- **Log file validation:** ❌ Disabled  
+  - **Why?** → Useful for compliance but not mandatory in this case.  
+- **CloudWatch Logs:** ❌ Disabled  
+  - **Why?** → Can be enabled later if real-time analysis is needed.  
 
-3. **Start trail creation**
-   - There are two ways to create a trail:
-     * Option 1: Click **Dashboard** in the left menu, then click **Create trail**
-     * Option 2: Click **Trails** in the left menu, then click **Create trail**
-   - Trails provide a permanent record of account activity, unlike event history which is limited to 90 days
-   
+Click **Next** ⏭️  
 
-4. **Configure trail attributes**
-   - Set the following values on the *Choose trail attributes* page:
-     * **Trail name**: "kzaw01Trail" ( or whatever the name you want lol)
-     * **Storage location**: Create new S3 bucket
-     * **Trail log bucket and folder**: Keep the default bucket name
-     * **Log file SSE-KMS encryption**: Deselect **Enabled**
-     * **Log file validation**: Deselect **Enabled**
-     * **CloudWatch Logs**: Deselect **Enabled**
-   - The trail name should be descriptive of its purpose
-   - S3 is where your logs will be stored long-term
-   - KMS encryption adds another layer of security but isn't needed for this lab
-   
+---
 
-5. **Proceed to next step**
-   - Click **Next**
-   - This takes you to the log selection page
-   
+## 🔍 Step 4: Select Events to Log  
 
-6. **Select event types**
-   - On the *Choose log events* page, select:
-     * **Management events**: Administrative operations that modify resources
-     * **Data events**: Resource operations performed on or within resources
-     * **Insights events**: Unusual API call rate activity
-   - Management events show who is making changes to your environment
-   - Data events show access to your data (like S3 objects)
-   - Insights events help identify unusual activity patterns
-   
+![eventlog](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/4.2-ct-event.png)
+- ✅ **Management events** (Tracks AWS service activity)  
+- ✅ **Data events** (Monitors resource access)  
+- ✅ **Insights events** (Detects abnormal activity)  
 
-7. **Configure Management events**
-   - In the *Management events* section:
-     * Select both **Read** and **Write**
-   - Read events show who is viewing resources
-   - Write events show who is modifying resources
-   
+### Configure Management Events  
 
-8. **Configure Data events**
-   - In the *Data events* section, set:
-     * **Data event: S3**: Select both **Read** and **Write**
-     * **Data event: Lambda**: **All regions** and **All functions**
-   - S3 data events log object-level operations like GetObject and PutObject
-   - Lambda data events log function invocations
-   
+![managementevents](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/4.3-CT-managementevent.png)
+- **Select:** ✅ **Read + Write**  
+> - **Why?** → Captures all actions (read/write) for complete monitoring.  
 
-9. **Configure Insights events**
-   - In the *Insights events* section:
-     * Select **API call rate**
-   - This detects unusual patterns in API usage that might indicate security issues
-   
+### Configure Data Events  
 
-10. **Review and create**
-    - Click **Next** to proceed to the review page
-    - Verify all settings are correct
-    - Click **Create trail** to finish
-    - Your trail is now recording activities across your AWS account
+![dataevent](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/4.4-CT-S3config.png)
+- **S3:** ✅ **Read + Write** (Monitors bucket access).  
+- **Lambda:** ✅ **All regions + All functions** (Detects function execution).  
+> - **Why?** → Identifies suspicious access to files and Lambda executions.  
 
-> Obviously mine is showing cloud_user as part of the sandbox but, whenever an user will do anything, it'll show up as well. 
-    
+### Configure Insights Events  
+
+![api call](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/4.5-CT-.png)
+- **Enable:** ✅ **API call rate** (Detects unusual API spikes).  
+> - **Why?** → Helps detect brute-force or credential stuffing attacks.  
+
+---
+
+## ✅ Step 5: Finalize and Activate the Trail
+1. Click **Next** ⏭️  
+
+![ctdone](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/5-ct-donecreated.png)
+2. Review the configuration and click **"Create trail"** 🎯  
+3. 🚀 **Congratulations!** Your CloudTrail is now active and monitoring AWS actions. 
+
+![ctdone1](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/example%20of%20what%20events.png)
+
+---
+
+## 📌 Bonus: Test and Analyze Logs  
+Once your trail is active, test its functionality by running CLI commands or performing actions in the console.  
+
+| Command                                    | Description                                                                 | Source Link                                                                                              |
+|--------------------------------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| `aws cloudtrail list-trails`               | Lists all CloudTrail trails associated with your AWS account.               | [AWS CLI Command Reference - list-trails](https://docs.aws.amazon.com/cli/latest/reference/cloudtrail/list-trails.html) |
+| `aws cloudtrail lookup-events --max-results 5` | Retrieves the most recent CloudTrail events (limited to 5 results).         | [AWS CLI Command Reference - lookup-events](https://docs.aws.amazon.com/cli/latest/reference/cloudtrail/lookup-events.html) |
+| `aws s3 ls s3://your-bucket-name/`         | Lists the objects stored in a specific S3 bucket.                           | [AWS CLI Command Reference - s3 ls](https://docs.aws.amazon.com/cli/latest/reference/s3/ls.html)          |
+
 
 ---
 
