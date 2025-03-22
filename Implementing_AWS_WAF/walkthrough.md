@@ -1,5 +1,10 @@
 # 📌 Securing Your Web Application with AWS WAF  
 
+<p align="center">
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/aws-waf-cyberpunk.KENZA.gif" width="600">
+</p>
+
+
 Welcome back to this exciting project! 
 
 ## 🎯 The Mission :
