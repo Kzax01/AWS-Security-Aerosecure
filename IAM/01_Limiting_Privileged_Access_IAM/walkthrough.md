@@ -1,6 +1,13 @@
 # 📌 Securing Privileged Access with IAM Boundaries
 
-Welcome back to this exciting project! 
+<p align="center">
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/leastprivilegekenza.gif" width="800">
+</p>
+
+<p align="center">
+  <strong>Welcome back to this exciting project! 🚀</strong>
+</p>
+
 
 ## 🎯 The Mission :
 As we seen earlier, the scenario involves securing the cloud infrastructure for **SkyFleet**, where the risk arises from broad `AdministratorAccess` permissions granted to cloud admins, and your mission is to implement **Permissions Boundaries** to enforce the **Least Privilege** principle and restrict access to critical resources.
