@@ -254,7 +254,7 @@ You should see this :
 2. **Launch EC2**
 - Unlike the previous one, creating an EC2 will actually work as per as the permission assigned.
 
-[ec2created](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/13-ec2created%20test.png)
+![ec2created](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/13-ec2created%20test.png)
 
 ---
 
