@@ -25,7 +25,7 @@ As we seen earlier, the scenario involves securing the cloud infrastructure for 
 
 2. **Create a New User**  
    - Click **Create User**  
-   - Enter a name and confirm : we'll need at least 2 users to test the permissions boundaries.
+   - Enter a name and confirm : we'll need at least 2 extra users to test the permissions boundaries.
 
 ![ourtestuser](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/2_users_tests.png)
 
