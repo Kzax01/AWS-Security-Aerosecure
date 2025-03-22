@@ -1,6 +1,14 @@
 ## 📌 How to Implement AWS WAF for Web Application Security
 
-Welcome to this new project! 
+
+<p align="center">
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/AWS%20WAF%20visu%20readme.gif" alt="AWS WAF visual" />
+</p>
+
+<p align="center">
+  Welcome to this new project!
+</p>
+
 
 ---
 
