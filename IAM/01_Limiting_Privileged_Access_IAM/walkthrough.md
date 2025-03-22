@@ -258,7 +258,7 @@ You should see this :
 
 ---
 
-## What have we learned from this Project ? 
+## So..What have we learned from this Project ? 
 
 - Created a SysAdmins group with AdministratorAccess policy ✓
 - Added three system administrators to the group ✓
