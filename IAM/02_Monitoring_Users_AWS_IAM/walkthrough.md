@@ -1,4 +1,4 @@
-# 📌 Monitoring, Auditing, and Logging Users and Resource Usage in AWS IAM
+# 📌 IAM Insights: Monitoring and Auditing Access
 
 Welcome back to this exciting project! 
 

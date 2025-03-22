@@ -1,4 +1,4 @@
-# 📌 Configure Privileged User Access by Setting Permissions Boundaries in AWS IAM 🔒
+# 📌 Securing Privileged Access with IAM Boundaries
 
 Welcome back to this exciting project! 
 
