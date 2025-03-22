@@ -1,6 +1,12 @@
 # 📌 How to use AWS KMS : Creating and Securing Customer Keys
 
-Welcome to the exciting world of cloud security!
+<p align="center">
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/AWS%20KMS%20readme%20visu.gif" alt="AWS KMS Readme Visu" />
+</p>
+
+<p align="center">
+  Welcome to this new exciting project!
+</p>
 
 ---
 
