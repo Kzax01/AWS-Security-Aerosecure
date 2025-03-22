@@ -5,7 +5,9 @@
 </p>
 
 
-Welcome back to this exciting project! 
+<p align="center">
+  Welcome to this new exciting project!
+</p>
 
 ## 🎯 The Mission :
 As seen previously, the objective is to deploy an AWS Web Access Control List (Web ACL) to detect and block threats such as SQL injections and malicious HTTP headers targeting your web application.
