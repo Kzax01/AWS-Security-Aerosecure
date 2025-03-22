@@ -1,6 +1,13 @@
 ## 📌 PART 2: How to Monitor, Audit, and Log Users and Resource Usage in AWS IAM.
 
-Welcome to the 2nd part of AWS IAM Access Monitoring project! 🚀
+<p align="center">
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/IAM%20monitoring%20usage.gif" width="800">
+</p>
+
+<p align="center">
+  <strong>Welcome to the 2nd part of this AWS IAM Monitoring project! 🚀</strong>
+</p>
+
 
 ---
 

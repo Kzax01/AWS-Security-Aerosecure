@@ -1,6 +1,13 @@
 ## 📌 PART 1 - How to Secure Access with Permissions Boundaries in AWS IAM.
 
-Welcome to the 1st part of this AWS IAM Permissions Boundaries project! 🚀
+<p align="center">
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/IAM%20limiting%20privilege%20%20access.gif" width="800">
+</p>
+
+<p align="center">
+  <strong>Welcome to the 1st part of this AWS IAM Permissions Boundaries project! 🚀</strong>
+</p>
+
 
 ---
 
