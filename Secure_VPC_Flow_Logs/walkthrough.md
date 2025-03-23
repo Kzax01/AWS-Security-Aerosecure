@@ -28,9 +28,11 @@ We'll configure VPC Flow Logs to send data to both **S3** and **CloudWatch** for
    - Navigate to **S3** and create a new bucket or use an existing one
    - Copy the bucket's **ARN** by selecting the bucket and clicking "Copy ARN"
    
+![s3ARN](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/1.s3-vpc.png)
+   
 
 2. **Set up VPC Flow Logs to S3**
-   - Navigate to **VPC** in the AWS console
+   - Go to **VPC**, click **Create VPC**, give it a name, and confirm.  
    - Select your VPC and go to the **Flow logs** tab
    - Click **Create flow log** & name it (e.g., `AeroSecure-kzax01`)
    - Configure the log settings:
@@ -44,15 +46,19 @@ We'll configure VPC Flow Logs to send data to both **S3** and **CloudWatch** for
      | **Log format**        | AWS default format          |
    - Click **Create flow log** ✅
    
+![s3flowlog](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc%202%20-%20S3flowlog.png)
 
 3. **Verify the bucket policy**
    - Go to your **S3 bucket > Permissions** tab
    - AWS updates the policy to allow `s3:PutObject` for Flow Logs ✅
 
+![updates3](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc%203-update%20policy.png)
+
 > 💡 **Note**: It may take **5-15 minutes** for logs to appear in S3.
 
 ## 📊 Creating CloudWatch Flow Logs
 
+![cwloggrp](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc-4-log%20group.png)
 1. **Create a CloudWatch Log Group**
    - Navigate to **CloudWatch > Logs > Log groups**
    - Click **Create log group**, name it (e.g., `AeroSecureVPCLog`), and click **Create**
@@ -71,10 +77,13 @@ We'll configure VPC Flow Logs to send data to both **S3** and **CloudWatch** for
      | **IAM Role**          | Existing or new IAM role    |
    - Click **Create flow log** ✅
 
+![cwflowlog](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc5-CW%20Flowlog.png)
+
 3. **Verify logs**
    - Go to **VPC > Flow logs** tab to see two **Active** logs (S3 & CloudWatch)
    - Navigate to **CloudWatch Log Group** to check for new logs
 
+![activelogs](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc6-flow%20logs%20s3%26cw%20created.png)
 ---
 
 # 🎯 Part 2: Generating Network Traffic
@@ -83,22 +92,32 @@ We'll create network traffic to generate useful **ACCEPT** and **REJECT** logs, 
 
 ### 🌍 Connect to your EC2 instance (AeroSecure Server)
 
+![ec2create](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc%207-%20EC2%20created.png)
+
+➡️ _Make sure you enable the "assign automatic Ipv4" on the settings while creating the EC2._
 1. **Create & connect**
    ```bash
    ssh user@<public-ip-address>
    ```
    - Log out with `logout`
-   
+ 
+![EC2 logged](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc%208-%20logged%20in%20ec2.png)
+
 
 2. **Generate rejected traffic**
+   - Go on your instance > click on it > actions > security > change sec grps :
+![changeSG](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc8-steps%20to%20add%20ssh.png)
+   
+![remove ssh](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc9-ssh%20removal.png)
    - Remove **SSH access** security group & allow **only HTTP (port 80)**
    - Try reconnecting via SSH ❌ (should time out)
    
 
 3. **Restore SSH access**
    - Re-add the **SSH security group**
-   - Reconnect ✅
-   
+   - Reconnect to the EC2 ✅
+
+![restore ssh](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc10-ssh%20removal2.png)
 
 > 🔄 **This process generates ACCEPT & REJECT records in your Flow Logs.**
 
@@ -108,12 +127,19 @@ We'll create network traffic to generate useful **ACCEPT** and **REJECT** logs, 
 
 ### 📈 Create CloudWatch Metric Filters
 
+![cwloggrp](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc%2011%20cw%20flow%20logs.png)
+
+
 1. **Go to CloudWatch > Logs > Log groups**
 2. **Select your VPC Flow Logs group**
 3. **Create a Metric Filter for SSH rejections**
+![create metric](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc%2012-%20metric%20filter.png)
+
    ```
    [version, account, eni, source, destination, srcport, destport="22", protocol="6", packets, bytes, windowstart, windowend, action="REJECT", flowlogstatus]
-   ```
+     ```
+![filterpattern](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/part%201Metric%20Filter%20for%20SSH%20rejections.png)
+
 
 4. **Set metric details:**
    - **Filter name:** `dest-port-22-reject`
@@ -121,7 +147,10 @@ We'll create network traffic to generate useful **ACCEPT** and **REJECT** logs, 
    - **Metric name:** `SSH Rejects`
    - **Metric value:** `1`
    - Click **Create metric filter** ✅
-   
+  
+![metricscw](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/part2%20metricfilter.png)
+
+![recapmetrics](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/part3%20metric%20filter.png)
 
 ### 🚨 Create CloudWatch Alarms
 
@@ -129,9 +158,20 @@ We'll create network traffic to generate useful **ACCEPT** and **REJECT** logs, 
 2. **Set alarm conditions:**
    - **Threshold:** `Greater/Equal than 1`
    - **Period:** `1 minute`
-3. **Set up SNS notifications** (email alerts)
-4. **Test the alarm** by generating SSH rejection traffic 🚨
+   
+![cwmetrics](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc%2013-CWALARM2.png)
 
+![cwstep2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc%2014-CWalarm2.png)
+
+![step3](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc15-CW%20alarm4.png)
+
+3. **Set up SNS notifications** (email alerts)
+
+![email](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/SNSconfirmation.png)
+
+4.**Create it**
+
+![done](![done](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc-16-metricfilterdone.png)
 
 ---
 
@@ -146,21 +186,26 @@ We'll create network traffic to generate useful **ACCEPT** and **REJECT** logs, 
    | sort @timestamp desc 
    | limit 20
    ```
-3. **View the top 20 rejected SSH attempts**
+3. **View the logs generated**
 
-### 🛠️ Analyzing with Athena
+![cw logs](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc17-CW%20analysis.png)
+
+
+### 📂 Get the S3 URI
 
 1. **Go to S3 > Find your Flow Logs bucket**
 2. **Copy the S3 URI** of your logs
 3. **Use Athena** to query the logs directly
 
----
+![s3 URI](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/S3generated%20logs%20from%20vpcflowlog.png)
+ 
 
-## 🎉 Congratulations! You've successfully set up & analyzed VPC Flow Logs 🔥
+### 🛠️ Analyzing with Athena
 
-   
+![athena](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/athena%20main%20page.png)
 
-2. **Create the table structure**
+
+1. **Create the table structure**
    - Run the following SQL query, replacing the placeholders with your actual values:
      ```sql
      CREATE EXTERNAL TABLE IF NOT EXISTS default.vpc_flow_logs (
@@ -182,12 +227,16 @@ We'll create network traffic to generate useful **ACCEPT** and **REJECT** logs, 
      dt string
      ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' LOCATION 's3://{your_log_bucket}/AWSLogs/{account_id}/vpcflowlogs/us-east-1/' TBLPROPERTIES ("skip.header.line.count"="1");
      ```
-_You'll need to add your S3 bucket URL but this time; it should end by your region : mine is us-east-1_
+_You'll need to add your S3 bucket URL but this time; it should end by your region._
 
-➡ Then you do ctrl + enter, & it'll run your query automatically.
+![query1](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/athena1.png)
+
+> ➡ Then you do ctrl + enter, & it'll run your query automatically.
 
 
-3. **Add a partition for your data**
+
+2. **Add a partition for your data**
+   - Click on the (+) to add a new query
    - Run the following SQL to add a partition for today's date:
      ```sql
      ALTER TABLE default.vpc_flow_logs
@@ -195,9 +244,10 @@ _You'll need to add your S3 bucket URL but this time; it should end by your regi
      location 's3://{your-log-bucket}/AWSLogs/{account-id}/vpcflowlogs/us-east-1/YYYY/MM/DD/';
      ```
    - Replace YYYY-MM-DD with the actual date
-   
 
-4. **Query and analyze your data**
+![query2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/athena2.png)
+
+3. **Query and analyze your data**
    - Run an analytical query on your flow logs:
      ```sql
      SELECT day_of_week(from_iso8601_timestamp(dt)) AS day,
@@ -214,11 +264,18 @@ _You'll need to add your S3 bucket URL but this time; it should end by your regi
      ORDER BY sourceaddress
      LIMIT 100;
      ```
-   - This query shows rejected TCP connections (protocol 6), ordered by source IP address
+> This query shows rejected TCP connections (protocol 6), ordered by source IP address
    
 ➡️ Then you'll see Athena analysing all the queries related to "REJECT" action as requested earlier. 
 Athena is a powerful tool for analysis. 
 
+![query3](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/3-athenalogs.png)
+
+➡️ We can even see how long was the total runtime & the data that were processed to retrieve the information :
+
+![infoathena](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/athena-timequery.png)
+
+## 🎉 Congratulations! You've successfully set up & analyzed VPC Flow Logs 🔥
 ---
 
 ## ➡ ✅ Conclusion
