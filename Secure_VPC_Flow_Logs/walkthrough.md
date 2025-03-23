@@ -221,7 +221,7 @@ Athena is a powerful tool for analysis.
 
 ---
 
-## Conclusion
+## ➡ ✅ Conclusion
 
 You've successfully:
 - ✔️  Set up VPC Flow Logs to capture network traffic data in both S3 and CloudWatch
