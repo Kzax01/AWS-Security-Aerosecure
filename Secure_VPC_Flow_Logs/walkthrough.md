@@ -8,13 +8,12 @@ This project demonstrates how to set up VPC Flow Logs to both S3 and CloudWatch,
 
 ## 📋 Table of Contents
 
-1. **🚀 Introduction**  
-2. **🛠️ Setting Up VPC Flow Logs**  
-3. **🌐 Generating Network Traffic**  
-4. **🔔 Monitoring & Alerting**  
-5. **📊 Data Analysis**  
-6. **🚀 What have we learned ?**  
-
+1. [🚀 Introduction](#-the-mission)  
+2. [🛠️ Setting Up VPC Flow Logs](#-part-1-setting-up-vpc-flow-logs)  
+3. [🌐 Generating Network Traffic](#-part-2-generating-network-traffic)  
+4. [🔔 Monitoring & Alerting](#-part-3-monitoring--alerting)  
+5. [📊 Data Analysis](#-part-4-data-analysis)  
+6. [🚀 Conclusion](#conclusion)  
 
 
 
