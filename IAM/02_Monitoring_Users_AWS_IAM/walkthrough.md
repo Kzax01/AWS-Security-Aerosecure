@@ -1,6 +1,12 @@
-# 📌 IAM Insights: Monitoring and Auditing Access
+# 📌 Part 2 : IAM Insights: Monitoring and Auditing Access
 
-Welcome back to this exciting project! 
+<p align="center">
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/IAM%20%20The%20Audit%20Tools%20KENZA.gif" width="800"/>
+</p>
+
+<p align="center">
+  <strong>Welcome to the 2nd part of this AWS IAM Monitoring project! 🚀</strong>
+</p>
 
 ## 🎯 The Mission :
 As we seen earlier, the scenario involves monitoring access for AeroSecure, where the **SOC** team identified suspicious activity, including unauthorized login attempts on an AWS account with elevated permissions, posing a potential threat to critical resources and data integrity.
