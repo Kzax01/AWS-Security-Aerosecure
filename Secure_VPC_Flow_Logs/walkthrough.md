@@ -15,181 +15,146 @@ This project demonstrates how to set up VPC Flow Logs to both S3 and CloudWatch,
 
 
 ---
-## Part 1: Setting Up VPC Flow Logs
+# 🚀 Part 1: Setting Up VPC Flow Logs
 
-We'll configure VPC Flow Logs to send data to both S3 and CloudWatch for different analysis capabilities.
+We'll configure VPC Flow Logs to send data to both **S3** and **CloudWatch** for different analysis capabilities. 
 
-### Creating S3 Flow Logs
+## 📂 Creating S3 Flow Logs
 
 1. **Create or identify an S3 bucket**
-   - Navigate to S3 and create a new bucket or use an existing one
-   - Copy the bucket's ARN by selecting the bucket and clicking "Copy ARN"
+   - Navigate to **S3** and create a new bucket or use an existing one
+   - Copy the bucket's **ARN** by selecting the bucket and clicking "Copy ARN"
    
 
 2. **Set up VPC Flow Logs to S3**
-   - Navigate to VPC in the AWS console
-   - Select your VPC and click on the "Flow logs" tab
-   - Click "Create flow log" & name it. Mine was : AeroSecure kzax01
-   - Configure the flow log with these settings:
-     - Filter: **All**
-     - Maximum aggregation interval: **1 minute** (for faster results during testing)
-     - Destination: **Send to an Amazon S3 bucket** (I named it S3-logs)
-     - S3 bucket ARN: Paste your copied ARN
-     - Log record format: **AWS default format**
-   - Click "Create flow log"
+   - Navigate to **VPC** in the AWS console
+   - Select your VPC and go to the **Flow logs** tab
+   - Click **Create flow log** & name it (e.g., `AeroSecure-kzax01`)
+   - Configure the log settings:
+   
+     | Setting                | Value                        |
+     |------------------------|------------------------------|
+     | **Filter**            | All                          |
+     | **Aggregation**       | 1 minute                     |
+     | **Destination**       | Send to Amazon S3           |
+     | **S3 bucket ARN**     | Paste copied ARN            |
+     | **Log format**        | AWS default format          |
+   - Click **Create flow log** ✅
    
 
 3. **Verify the bucket policy**
-   - Return to your S3 bucket and select the "Permissions" tab
-   - Notice that AWS automatically updated the bucket policy to allow the VPC Flow Logs service to write to your bucket
-   - The policy will include the `s3:PutObject` permission for the Flow Logs service
-   
+   - Go to your **S3 bucket > Permissions** tab
+   - AWS updates the policy to allow `s3:PutObject` for Flow Logs ✅
 
-> 💡 **Note**: It may take 5-15 minutes for flow logs to start appearing in your S3 bucket.
+> 💡 **Note**: It may take **5-15 minutes** for logs to appear in S3.
 
-### Creating CloudWatch Flow Logs
+## 📊 Creating CloudWatch Flow Logs
 
 1. **Create a CloudWatch Log Group**
-   - Navigate to CloudWatch in the AWS console
-   - Go to "Logs" > "Log groups" in the sidebar
-   - Click "Create log group"
-   - Name your log group (mine is AeroSecureVPCLog)
-   - Click "Create"
-   
+   - Navigate to **CloudWatch > Logs > Log groups**
+   - Click **Create log group**, name it (e.g., `AeroSecureVPCLog`), and click **Create**
    
 
 2. **Set up VPC Flow Logs to CloudWatch**
-   - Return to your VPC and the "Flow logs" tab
-   - Click "Create flow log" & name it (Mine was CW-logs)
-   - Configure the flow log with these settings:
-     - Filter: **All**
-     - Maximum aggregation interval: **1 minute**
-     - Destination: **Send to CloudWatch Logs**
-     - Destination log group: Select your created log group
-     - IAM role: Select an existing role with appropriate permissions or create a new one
-     - Log record format: **AWS default format**
-   - Click "Create flow log"
+   - Go to your VPC **Flow logs** tab, click **Create flow log**
+   - Configure the log settings:
    
+     | Setting                | Value                        |
+     |------------------------|------------------------------|
+     | **Filter**            | All                          |
+     | **Aggregation**       | 1 minute                     |
+     | **Destination**       | Send to CloudWatch Logs     |
+     | **Log Group**         | Select created log group    |
+     | **IAM Role**          | Existing or new IAM role    |
+   - Click **Create flow log** ✅
 
-3. **Verify your flow logs**
-   - On the VPC "Flow logs" tab, you should now see two Active flow logs—one sending to S3 and another to CloudWatch
-   - Navigate to your CloudWatch Log Group to see if log streams are being created (remember, this may take a few minutes)
-   
+3. **Verify logs**
+   - Go to **VPC > Flow logs** tab to see two **Active** logs (S3 & CloudWatch)
+   - Navigate to **CloudWatch Log Group** to check for new logs
 
 ---
 
-## Part 2: Generating Network Traffic
+# 🎯 Part 2: Generating Network Traffic
 
-To generate meaningful flow logs, we need to create some network traffic, including both successful and rejected connections.
+We'll create network traffic to generate useful **ACCEPT** and **REJECT** logs, which we'll use for monitoring and analysis.
 
-1. **Connect to your EC2 instance** - AeroSecure Server 
-   - Navigate to EC2 in the AWS console
-   - Create your instance and copy its Public IPv4 address ( Be sure to enable the auto-assign Ipv4)
-   - Open a terminal and connect via SSH:
-     ```
-     ssh user@<public-ip-address>
-     ```
-   - Once connected, log out using the `logout` command
+### 🌍 Connect to your EC2 instance (AeroSecure Server)
+
+1. **Create & connect**
+   ```bash
+   ssh user@<public-ip-address>
+   ```
+   - Log out with `logout`
    
 
 2. **Generate rejected traffic**
-   - In the EC2 console, select your instance (AeroSecure Server)
-   - Go to Actions > Security > Change security groups
-   - Remove the security group that allows SSH access (typically port 22)
-   - Add a security group that only allows HTTP (port 80)
-   - Try to connect to your instance again via SSH—this connection will time out and generate a REJECT record in your flow logs
-   - Cancel the SSH attempt with Ctrl+C
+   - Remove **SSH access** security group & allow **only HTTP (port 80)**
+   - Try reconnecting via SSH ❌ (should time out)
    
 
 3. **Restore SSH access**
-   - Go back to your instance's security groups
-   - Revert to the original security group that allows SSH
-   - Connect to your instance again via SSH to verify access is restored
+   - Re-add the **SSH security group**
+   - Reconnect ✅
    
 
-> 🔄 This process of allowing and blocking SSH access generates both ACCEPT and REJECT records in your VPC Flow Logs, which we'll use for monitoring and analysis.
+> 🔄 **This process generates ACCEPT & REJECT records in your Flow Logs.**
 
 ---
 
-## Part 3: Monitoring and Alerting
+# 🔔 Part 3: Monitoring & Alerting
 
-Now that we have flow logs data and have generated some traffic, let's create monitoring and alerting systems.
+### 📈 Create CloudWatch Metric Filters
 
-### Creating CloudWatch Metric Filters
+1. **Go to CloudWatch > Logs > Log groups**
+2. **Select your VPC Flow Logs group**
+3. **Create a Metric Filter for SSH rejections**
+   ```
+   [version, account, eni, source, destination, srcport, destport="22", protocol="6", packets, bytes, windowstart, windowend, action="REJECT", flowlogstatus]
+   ```
 
-1. **Access your CloudWatch Log Group**
-   - Navigate to CloudWatch > Logs > Log groups
-   - Select your VPC Flow Logs log group
-   - Verify that log streams are now visible
+4. **Set metric details:**
+   - **Filter name:** `dest-port-22-reject`
+   - **Metric namespace:** `AeroSecureVPCLog`
+   - **Metric name:** `SSH Rejects`
+   - **Metric value:** `1`
+   - Click **Create metric filter** ✅
    
 
-2. **Create a Metric Filter for SSH rejections**
-   - Select the "Metric filters" tab and click "Create metric filter"
-   - In the "Filter pattern" field, enter:
-     ```
-     [version, account, eni, source, destination, srcport, destport="22", protocol="6", packets, bytes, windowstart, windowend, action="REJECT", flowlogstatus]
-     ```
-   - This pattern will detect rejected SSH connection attempts (port 22, TCP protocol)
-   - Click "Next" after testing the pattern
-   
+### 🚨 Create CloudWatch Alarms
 
-3. **Configure the metric details**
-   - Filter name: **dest-port-22-reject**
-   - Metric namespace: **AeroSecureVPCLog** (or another name of your choice)
-   - Metric name: **SSH Rejects**
-   - Metric value: **1** (this counts each matching event as 1)
-   - Click "Next" and then "Create metric filter"
-   
+1. **Create an alarm** from your new metric filter
+2. **Set alarm conditions:**
+   - **Threshold:** `Greater/Equal than 1`
+   - **Period:** `1 minute`
+3. **Set up SNS notifications** (email alerts)
+4. **Test the alarm** by generating SSH rejection traffic 🚨
 
-### Setting Up CloudWatch Alarms
 
-1. **Create an alarm based on your metric filter**
-   - From the "Metric filters" tab, select your newly created filter
-   - Click "Create alarm" & name it. Mine was Rejects-alert
-   - Configure the alarm conditions:
-     - Period: **1 minute**
-     - Threshold type: **Static**
-     - Condition: **Greater/Equal than 1**
-     - This will trigger when there's at least one SSH rejection per minute
-     
-
-2. **Configure alert notifications**
-   - Select "Create a new topic" for SNS notifications
-   - Enter your email address for notifications
-   - Confirm the subscription via the email you receive
-   - Name your alarm (e.g., "SSH rejects")
-   - Review and create the alarm
-   
-
-3. **Test your alarm**
-   - Generate more rejected SSH traffic by changing the security group again
-   - Wait a few minutes for the data to propagate
-   - Check your alarm status—it should change to "In alarm"
-   - You should receive an email notification about the alarm
-   
 ---
 
-## Part 4: Data Analysis
+# 📊 Part 4: Data Analysis
 
-Now let's explore how to analyze the VPC Flow Logs data using different AWS services.
+### 🔍 Using CloudWatch Logs Insights
 
-### Using CloudWatch Logs Insights
+1. **Go to CloudWatch > Logs Insights**
+2. **Run a query:**
+   ```
+   fields @timestamp, @message 
+   | sort @timestamp desc 
+   | limit 20
+   ```
+3. **View the top 20 rejected SSH attempts**
 
-1. **Run a query with Logs Insights**
-   - Navigate to CloudWatch > Logs > Logs Insights
-   - Select your VPC Flow Logs log group
-   - Use the sample queries for VPC Flow Logs or create your own
-   - Try the "Top 20 source IP addresses with highest number of rejected requests" query
-   - Click "Run query" and analyze the results
+### 🛠️ Analyzing with Athena
 
-### Analyzing Data with Athena
+1. **Go to S3 > Find your Flow Logs bucket**
+2. **Copy the S3 URI** of your logs
+3. **Use Athena** to query the logs directly
 
-1. **Create an Athena table for your flow logs**
-   - Navigate to your S3 bucket with flow logs
-   - Navigate through the folder structure (AWSLogs/account-id/AeroSecureVPCLog/region/year/month/day)
-   - Copy the S3 URI for this path
-   - Go to Athena and launch the query editor
-   - Configure Athena settings to store query results in your S3 bucket
+---
+
+## 🎉 Congratulations! You've successfully set up & analyzed VPC Flow Logs 🔥
+
    
 
 2. **Create the table structure**
@@ -256,11 +221,11 @@ Athena is a powerful tool for analysis.
 ## Conclusion
 
 You've successfully:
-- 📝 Set up VPC Flow Logs to capture network traffic data in both S3 and CloudWatch
-- 🚦 Generated test traffic to populate your flow logs
-- 🔔 Created a CloudWatch metric and alarm to detect and alert on suspicious activities
-- 🔍 Used CloudWatch Logs Insights for real-time analysis
-- 📊 Set up Athena for SQL-based analysis of your historical flow logs data
+- ✔️  Set up VPC Flow Logs to capture network traffic data in both S3 and CloudWatch
+- ✔️  Generated test traffic to populate your flow logs
+- ✔️  Created a CloudWatch metric and alarm to detect and alert on suspicious activities
+- ✔️  Used CloudWatch Logs Insights for real-time analysis
+- ✔️  Set up Athena for SQL-based analysis of your historical flow logs data
 
 This infrastructure gives you powerful capabilities for network monitoring, security analysis, and troubleshooting in your AWS environment.
 
