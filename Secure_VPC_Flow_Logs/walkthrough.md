@@ -1,6 +1,13 @@
 # 📌 AWS VPC Flow Logs: Setup, Monitoring, and Analysis project
 
-Welcome back to this exciting project! 
+<p align="center">
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/VPC-Logs2-e1702997732729.png" width="80%" />
+</p>
+
+<p align="center">
+  <b>Welcome to this new VPC project!</b>
+</p>
+
 
 ## 🎯 The Mission :
 This project demonstrates how to set up VPC Flow Logs to both S3 and CloudWatch, create alerts for failed SSH attempts, and perform advanced analysis of the collected data.

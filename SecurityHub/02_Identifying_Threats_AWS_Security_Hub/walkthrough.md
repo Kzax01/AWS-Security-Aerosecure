@@ -1,6 +1,13 @@
 # 📌 Part 2 : Identifying and Remediating Threats with AWS Security Hub
 
-Welcome back to this exciting project! 
+<p align="center">
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/SH-Finding-Flow.png" width="80%" />
+</p>
+
+<p align="center">
+  <b>Welcome back to the 2nd part of this project! 🚀</b>
+</p>
+
 
 ## 🎯 The Mission :
 As seen previously, the mission at AeroSecure is to protect StratoJet’s top-secret electric propulsion technology from cyber threats by simulating and analyzing a security breach using AWS Security Hub to track and neutralize the threat.
