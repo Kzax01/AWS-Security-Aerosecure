@@ -40,6 +40,9 @@ AWS Config will be our ever-watchful eye, logging every move inside our environm
 4. On the review page, click **Confirm** at the bottom.
 5. In the AWS Config Dashboard, navigate to **Settings** (left menu).
 
+> 💡AWS config will automatically create a bucket s3 to store the records
+
+
 ### 🕵️ Step 2: Activate Security Hub
 
 Our **command center** is Security Hub. Let’s turn it on.
@@ -54,21 +57,40 @@ Our **command center** is Security Hub. Let’s turn it on.
 Now, we deploy our digital traps—honeypots designed to lure attackers into revealing themselves.
 
 1. Open a new tab and search for `CloudFormation`.
-2. Right-click on **CloudFormation** and select **Open Link in New Tab**.
-3. Click **Create Stack > With new resources (standard)**.
-4. Under **Prerequisite**, select **Create template in designer**.
-5. Click **Create template in designer**.
-6. Open the **lab GitHub repository** in a new tab.
-7. Copy all the **template code** from GitHub.
-8. Return to the designer page, ensure the **Templates** tab is selected at the bottom.
-9. Paste the template code, replacing the existing code.
-10. Click the validation icon (✓) and then the create stack icon (cloud with arrow).
-11. Name the stack `AeroSecureStack`.
-12. Check the box under **Capabilities**, then click **Create stack**.
+3. Click **Create Stack > "Build from Infrastructure composer"**.
+4. Then click on **"create in infrastructure composter"**
+5. A new page will open, click **Create template**.
+6. Copy all the **template code** from GitHub.
+7. Return to the designer page, ensure the **Templates** tab is selected at the bottom.
+8. Paste the template code, replacing the existing code.
+9. **Validate** it & **create template** then confirm.
+10. Name the stack as you want; for this project mine is `AeroSecureStack`.
+11. Check the box under **Capabilities**, then click **Create stack**.
 
 [🔗 CloudFormation Template Link](https://github.com/arcuricm/Hands-on-Security-Hub/blob/main/OriginalChallenge.yml)
 
 > *"Patience, agent... Our trap deployment takes a few minutes. Meanwhile, let’s return to our command center."*
+
+### 📌 What have we deployed in that Cloudformation template ?
+
+| Resource              | Type                  | Purpose in Honeypot/Security Monitoring                                                                 |
+|-----------------------|-----------------------|--------------------------------------------------------------------------------------------------------|
+| **DataBucket**         | S3 Bucket             | A decoy bucket with strict access control. Alerts when unauthorized access is attempted, triggering a Security Hub finding. |
+| **DataSecret**         | Secrets Manager Secret| A fake secret that triggers a Security Hub finding when decrypted or accessed without permission, detecting unauthorized credential access. |
+| **DataTable**          | DynamoDB Table        | A decoy table, monitored for unauthorized reads or writes, generating Security Hub findings for suspicious activities. |
+| **WriteDataFunction**  | Lambda Function       | A custom function that creates dummy data in honeypot resources to set up the decoy environment.         |
+| **DataEventsBucket**   | S3 Bucket for CloudTrail | Logs API events related to honeypot resources for detailed forensic analysis.                             |
+| **DataEventsTrail**    | CloudTrail            | Logs events specific to honeypot resources, reducing noise and focusing on security incidents.          |
+| **DataFunction**       | Lambda Function       | Processes CloudTrail events and generates actionable Security Hub findings from raw data.               |
+| **EventBridge Rules**  | AWS EventBridge Rules | Captures API calls to various resources (DynamoDB, S3, STS, KMS) and routes them to **DataFunction** for analysis and finding creation. |
+
+### 🕵️‍♂️ The entire architecture is designed as a sophisticated honeypot system that:
+1. Creates deliberately exposed but fake resources
+2. Monitors all interactions with these resources
+3. Generates high-fidelity security findings in AWS Security Hub
+4. Provides detailed forensic information about potential security threats or unauthorized access attempts
+
+> ➡️ It is perfect for our project.
 
 ---
 
