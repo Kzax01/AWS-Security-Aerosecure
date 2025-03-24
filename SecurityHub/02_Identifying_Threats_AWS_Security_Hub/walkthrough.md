@@ -21,253 +21,187 @@ As seen previously, the mission at AeroSecure is to protect StratoJet’s top-se
 
 
 ---
+# 🛡️ AeroSecure: The Hunt for the Intruder
 
 ## Phase 1: Enabling Security Hub and Deploying Honeypots
 
-> *In cybersecurity, the best trap is the one your adversary never sees coming. We'll set up honeypots to lure and identify our intruder.*
+> *"In cybersecurity, the best trap is the one your adversary never sees coming."*
+>
+> Let's lay our bait and wait for the attacker to fall into our web.
 
-### Step 1: Configure AWS Config
+### 🎯 Step 1: Configure AWS Config
 
-AWS Config will be our surveillance system:
+AWS Config will be our ever-watchful eye, logging every move inside our environment.
 
-1. Type `Config` in the search bar at the top of the page
-2. Select **Config** from the dropdown menu
-3. Click **1-click setup** for rapid configuration
-4. On the review page, click **Confirm** at the bottom
-5. In the AWS Config Dashboard, navigate to **Settings** (left menu)
+1. Type `Config` in the AWS search bar.
+2. Select **Config** from the dropdown menu.
+3. Click **1-click setup** for rapid configuration.
+4. On the review page, click **Confirm** at the bottom.
+5. In the AWS Config Dashboard, navigate to **Settings** (left menu).
 
+### 🕵️ Step 2: Activate Security Hub
 
-### Step 2: Activate Security Hub
+Our **command center** is Security Hub. Let’s turn it on.
 
-Security Hub will serve as our command center:
+1. Search for `Security Hub` in the AWS search bar.
+2. Select **Security Hub** from the results.
+3. Click **Go to Security Hub**.
+4. On the activation page, click **Enable Security Hub** at the bottom.
 
-1. Search for `Security Hub` in the search bar
-2. Select **Security Hub** from the results
-3. Click **Go to Security Hub**
-4. On the activation page, click **Enable Security Hub** at the bottom
+### 🪤 Step 3: Deploy Your Honeypots
 
-### Step 3: Deploy Your Honeypots
+Now, we deploy our digital traps—honeypots designed to lure attackers into revealing themselves.
 
-Now, let's set up our traps:
+1. Open a new tab and search for `CloudFormation`.
+2. Right-click on **CloudFormation** and select **Open Link in New Tab**.
+3. Click **Create Stack > With new resources (standard)**.
+4. Under **Prerequisite**, select **Create template in designer**.
+5. Click **Create template in designer**.
+6. Open the **lab GitHub repository** in a new tab.
+7. Copy all the **template code** from GitHub.
+8. Return to the designer page, ensure the **Templates** tab is selected at the bottom.
+9. Paste the template code, replacing the existing code.
+10. Click the validation icon (✓) and then the create stack icon (cloud with arrow).
+11. Name the stack `AeroSecureStack`.
+12. Check the box under **Capabilities**, then click **Create stack**.
 
-1. Open a new tab and search for `CloudFormation`
-2. Right-click on **CloudFormation** and select **Open Link in New Tab**
-3. Click **Create Stack > With new resources (standard)** in the top right
-4. Under **Prerequisite**, select **Create template in designer**
-5. Click **Create template in designer**
-6. Open the lab GitHub repository in a new tab
-7. Copy all the template code from GitHub
-8. Return to the designer page, ensure the **Templates** tab is selected at the bottom
-9. Paste the template code, replacing the existing code
-10. In the menu bar (top left), click the validation icon (✓)
-11. Then click the create stack icon (cloud with arrow)
-12. On the **Create Stack** page, scroll and click **Next**
-13. In **Stack name**, enter `AeroSecureStack`
-14. Click **Next**
-15. Scroll to **Capabilities**, check the box next to "I acknowledge..."
-16. Click **Create stack**
+[🔗 CloudFormation Template Link](https://github.com/arcuricm/Hands-on-Security-Hub/blob/main/OriginalChallenge.yml)
 
-### [➡️ FYI : Here's the link of the CloudFormation template used](https://github.com/arcuricm/Hands-on-Security-Hub/blob/main/OriginalChallenge.yml)
-
-> *Patience, agent... Our trap deployment takes a few minutes. Meanwhile, let's return to our command center.*
-
-17. Return to the Security Hub tab
-18. Refresh the page to see your baseline security indicators under **Findings by Region**
-19. Click the number in the **Critical findings** box to view the details
-20. Return to the CloudFormation tab to verify your honeypots are deployed. You should see `CREATE_COMPLETE` under SecretServers
-
-*Note: Building may take a few minutes. Refresh if necessary.*
+> *"Patience, agent... Our trap deployment takes a few minutes. Meanwhile, let’s return to our command center."*
 
 ---
 
 ## Phase 2: Monitoring Suspect #1 - Martina's Activities
 
-Our first suspect enters the scene. Let's observe what Martina does in our environment.
+🚨 **Suspect Identified: Martina**  
+A seemingly innocent user—or is she? Let’s observe.
 
-### ➡ Logging in as Martina
+### 🔑 Logging in as Martina
 
-1. Open a new tab in private browsing
-2. Log into the AWS console with Martina's credentials
-3. Ensure you're still in the **N. Virginia (us-east-1)** region
+1. Open a **new private browsing tab**.
+2. Log into the AWS console with **Martina’s credentials**.
+3. Ensure you are in **us-east-1 (N. Virginia)**.
 
-### ➡ Martina's Actions
+### 🔍 Martina’s Suspicious Actions
 
-> *Let's track Martina's steps to determine if they're legitimate or suspicious.*
+> *Her first move: Creating new AWS resources.*
 
-#### ➡ Creating a VPC
+#### 🏗️ Creating a VPC
 
-1. Search for `VPC` in the search bar
-2. Select **VPC** from the menu
-3. Click **Create VPC**
-4. Under **Resources to create**, verify **VPC and more** is selected
-5. Scroll and click **Create VPC**
+1. Search for `VPC` in AWS.
+2. Click **Create VPC**.
+3. Verify **VPC and more** is selected.
+4. Click **Create VPC**.
 
-#### ➡ Launching an EC2 Instance
+#### 🚀 Launching an EC2 Instance
 
-1. While the VPC is being created, search for `EC2`
-2. Select **EC2** from the results
-3. In the left menu, select **Key Pairs**
-4. Click **Create key pair**
-5. Name the key pair `AeroSecureKP`
-6. Click **Create key pair**
-7. Return to the **EC2 Dashboard** from the left menu
-8. Select **Instances (running)**
-9. Click **Launch instances**
-10. Name the instance `AerosecureInstance`
-11. Under **Instance type**, choose **t3.micro**
-12. Under **Key pair**, select **AeroSecureKP**
-13. Next to **Network settings**, click **Edit**, then under **Auto-assign public IP**, choose **Enable**
-14. Click **Launch instance**
+1. While the VPC is being created, search for `EC2`.
+2. Create a **key pair** named `AeroSecureKP`.
+3. Navigate to **EC2 Dashboard** > **Instances**.
+4. Click **Launch instance**.
+5. Name it `AerosecureInstance`, select **t3.micro**.
+6. Choose **AeroSecureKP** as the key pair.
+7. Enable **Auto-assign public IP**.
+8. Click **Launch instance**.
 
-#### ➡ Managing IAM Access Keys
+#### 🔓 Managing IAM Access Keys
 
-1. Search for `IAM` in the search bar
-2. Select **IAM** from the results
-3. In the left menu, select **Users**
-4. Click on **Martina**
-5. Select the **Security credentials** tab and click **Create access key**
-6. Close the **Create access key** popup
+1. Search for `IAM`.
+2. Navigate to **Users** > **Martina**.
+3. Create a new **Access Key**.
 
-#### ➡ Accessing S3 Buckets
+#### 📂 Accessing S3 Buckets
 
-1. Search for `S3` in the search bar
-2. Select **S3** from the results
-3. Under **Buckets**, click on the bucket starting with `cf-templates`
-4. Under **Objects**, click on the object containing `designer` in its name
+1. Search for `S3`.
+2. Click on the bucket with `cf-templates`.
+3. Access an object containing `designer` in its name.
 
-#### ➡ Deactivating and Deleting Access Keys
+#### ❌ Deactivating and Deleting Access Keys
 
-1. Return to the IAM console by searching for `IAM`
-2. Select **IAM** from the results
-3. In the left menu, select **Users**
-4. Click on **Martina**
-5. Select the **Security credentials** tab
-6. Under **Access key ID**, click **Make Inactive** on the right
-7. In the **Deactivate** popup, click **Deactivate**
-8. Next to the **Make active** button, click **X** to delete the access key
-9. In the **Delete** popup, confirm deletion by copy-pasting the access key
-10. Click **Delete** to close the popup and delete the access key
+1. Return to **IAM**.
+2. Select **Martina’s user profile**.
+3. Under **Security Credentials**, deactivate and delete her access key.
 
- > *You can now close this tab. Martina's actions are complete.*
-
----
-## 🕵️‍♂️ Phase 3: Analyzing Suspect #2 - George's Activities
-
-Our second suspect, George the IAM and Compliance Specialist has now enters the game. Let's see what he does.
-
-### ➡ Logging in as George
-
-1. Open a new tab in private browsing
-2. Log into the AWS console with George's credentials
-3. Ensure you're still in the **N. Virginia (us-east-1)** region
-
-### ➡ George's Actions 
-
-> *Are George's actions normal for his role? Let's analyze them in detail.*
-
-#### ➡ Creating IAM Access Keys
-
-* Search for `IAM` in the search bar
-* Select **IAM** from the results
-* In the left menu, select **Users**
-* Click on **George**
-* Select the **Security credentials** tab
-* Click **Create access key**
-* In the popup, click **Download .csv file**, then close the popup
-
-#### ➡ Accessing S3 and DynamoDB Resources
-
-1. Search for `S3` in the search bar
-2. Select **S3** from the results
-3. Under **Buckets**, click on the first bucket starting with `cf-templates`
-4. Under **Objects**, click on the first object containing `designer` in its name
-5. On the designer page, check the box next to the object starting with `cf.template` and click **Download**
-6. Search for `DynamoDB` in the search bar
-7. Select **DynamoDB** from the results
-8. In the left menu, select **Tables**
-9. Copy the name of the listed table to your clipboard ( Mine was AeroSecureStack-DataTable-xxxx)
-
-#### ➡ Connecting to the EC2 Instance
-
-* Search for `EC2` in the search bar
-* Select **EC2** from the results
-* Under **Resources**, click **Instances (running)**
-* Check the box next to **AdminServer** and click **Connect**
-* On the **Connect to Instance** page, click **Connect**
-
-#### ➡ Running Commands on the Instance
-
-In the newly opened EC2 Instance Connect terminal:
-1. Run `ls`
-2. Run `pwd`
-3. Run `sudo yum update`
-
-*You can now close the EC2 and EC2 Instance Connect tabs. George's actions are complete.*
+> **Conclusion:** Martina’s actions seem... odd. But is she the real culprit?
 
 ---
 
-## Phase 4: Investigating Suspect #3 - Edward's Activities
+## 🕵️‍♂️ Phase 3: Tracking Suspect #2 - George
 
-Our final suspect, Edward : the Security Operations Lead is now under surveillance. His actions could reveal our hacker.
+🚨 **New Suspect Identified: George, IAM & Compliance Specialist**
 
-### Logging in as Edward
+> *George has elevated IAM permissions. Let’s see how he uses them.*
 
-1. Open a new tab in private browsing
-2. Log into the AWS console with Edward's credentials
-3. Ensure you're still in the **N. Virginia (us-east-1)** region
+### 🔑 Logging in as George
 
-### Edward's Actions
+1. Open a **private browsing tab**.
+2. Log into AWS with **George’s credentials**.
 
-> *Let's closely track Edward's movements. Do his actions appear legitimate?*
+### 🔍 George’s Actions
 
-#### ➡ Creating IAM Access Keys
+#### 🔑 Creating IAM Access Keys
 
-1. Search for `IAM` in the search bar
-2. Select **IAM** from the results
-3. In the left menu, select **Users**
-4. Click on **Edward**
-5. Select the **Security credentials** tab
-6. Click **Create access key**
-7. In the popup, click **Download .csv file**, then close the popup
+1. Navigate to **IAM > Users > George**.
+2. Create a **new access key**.
 
-#### ➡ Connecting to EC2 Instance and Configuring AWS CLI
+#### 🗄️ Accessing S3 and DynamoDB Resources
 
-1. Search for `EC2` in the search bar
-2. Select **EC2** from the results
-3. Under **Resources**, click **Instances (running)**
-4. Check the box next to **AdminServer** and click **Connect**
-5. On the **Connect to Instance** page, click **Connect**
+1. Navigate to **S3** and download an object from a **cf-templates bucket**.
+2. Search for **DynamoDB**.
+3. Copy the **table name** (e.g., AeroSecureStack-DataTable-xxxx).
 
-In the EC2 Instance Connect terminal:
-1. Run `aws configure`
-2. Open the downloaded CSV file, copy the AWS access key ID, and paste it when prompted
-3. Copy the AWS secret access key and paste it when prompted
-   *Note: Make sure to copy the entire secret key, as the end may be hidden in the downloaded document*
-4. For the region, enter `us-east-1`
-5. Accept the default output format by pressing Enter
+#### 💻 Connecting to an EC2 Instance
 
-#### ➡ Unauthorized Access to S3 and DynamoDB Data
+1. Search for `EC2`.
+2. Select **AdminServer**.
+3. Click **Connect** and access the instance.
 
-1. Return to the EC2 tab and search for `S3`
-2. Right-click on **S3** and select **Open Link in New Tab**
-3. Under **Buckets**, copy the name of the first bucket : _aerosecurestack-databucket-xxxxx_
-4. Click on this bucket
-5. In the EC2 Instance Connect tab, run the following command (replacing the bucket name):
+#### 🛠️ Running Commands on the Instance
+
+Run `ls`, `pwd`, and `sudo yum update`.
+
+> **George is interacting with sensitive data. Is he our intruder?**
+
+---
+
+## 🚨 Phase 4: Confronting Suspect #3 - Edward
+
+🚨 **Final Suspect: Edward, Security Operations Lead**
+
+> *If anyone knows how to cover tracks, it’s Edward. Let’s catch him in the act.*
+
+### 🔑 Logging in as Edward
+
+1. Open a **private browsing tab**.
+2. Log into AWS with **Edward’s credentials**.
+
+### 🔍 Edward’s Moves
+
+#### 🔑 Creating IAM Access Keys
+
+1. Navigate to **IAM > Users > Edward**.
+2. Create a new **Access Key**.
+
+#### 💻 Connecting to EC2 & Configuring AWS CLI
+
+1. Access **EC2 > AdminServer**.
+2. In the terminal, run:
+   ```sh
+   aws configure
    ```
-   aws s3 cp s3://[INSERT_BUCKET_NAME_HERE]/data-object /tmp
-   ```
-6. Return to the S3 tab and search for `DynamoDB`
-7. Select **DynamoDB** from the results
-8. In the left menu, select **Tables**
-9. Copy the name of the table starting with `AeroSecureStack-DataTable-1OAWNRxxx`
-10. In the EC2 Instance Connect tab, run a table scan with the command:
-    ```
-    aws dynamodb scan --table-name [INSERT_TABLE_NAME_HERE]
-    ```
-    
-_Mine was : aws dynamodb scan --table-name AeroSecureStack-DataTable-1OAWNRxxx_
+3. Enter Edward’s **Access Key & Secret**.
+4. Set the region as `us-east-1`.
 
-> *Edward's actions are now complete.*
+#### ⚠️ Unauthorized Access to S3 and DynamoDB
+
+1. Copy the **S3 bucket name** (e.g., `aerosecurestack-databucket-xxxxx`).
+2. In **EC2 Instance Connect**, attempt an unauthorized S3 download:
+   ```sh
+   aws s3 cp s3://aerosecurestack-databucket-xxxxx/secret-data.txt .
+   ```
+
+> **🚨 Caught red-handed! Edward is our intruder.**
+
 
 ---
 
@@ -293,7 +227,7 @@ Let's return to our Security Hub console (logged in as cloud_user) and examine t
 
 ---
 
-## Incident Response and Remediation Plan
+## 🎯 Incident Response and Remediation Plan
 
 Now that we've identified our hacker, here are the recommended remediation steps:
 
@@ -312,8 +246,10 @@ Now that we've identified our hacker, here are the recommended remediation steps
    - Enable MFA for all users
    - Configure more specific alerts in Security Hub
 
+> *"In cybersecurity, the hunt never ends. Stay vigilant."* 🛡️
+
 ---
-## Key Takeaways 🔑
+## 🔑 Key Takeaways 
 
 This project that we did together has demonstrated the importance of:
 - Actively monitoring user activities, even those with elevated privileges
