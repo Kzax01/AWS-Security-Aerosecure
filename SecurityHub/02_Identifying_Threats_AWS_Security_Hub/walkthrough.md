@@ -11,13 +11,14 @@ As seen previously, the mission at AeroSecure is to protect StratoJet’s top-se
 
 ## 📋 Table of Contents
 
-- 🛡️ [Phase 1: Enabling Security Hub and Deploying Honeypots](#phase-1-enabling-security-hub-and-deploying-honeypots)
-- 👤 [Phase 2: Monitoring Suspect #1 - Martina's Activities](#phase-2-monitoring-suspect-1---martinas-activities)
-- 🕵️‍♂️ [Phase 3: Analyzing Suspect #2 - George's Activities](#-phase-3-analyzing-suspect-2---georges-activities)
-- 🕵️‍♀️ [Phase 4: Investigating Suspect #3 - Edward's Activities](#phase-4-investigating-suspect-3---edwards-activities)
-- 📊 [The Investigation Results](#the-investigation-results-)
-- 🔧 [Incident Response and Remediation Plan](#incident-response-and-remediation-plan)
-- 🧠 [Key Takeaways](#key-takeaways-)
+
+- 🛡️ [Phase 1: Enable Security Hub & Deploy Honeypots](#phase-1-enable-security-hub--deploy-honeypots)
+- 👤 [Phase 2: Monitor Martina’s Activities](#phase-2-monitor-martinas-activities)
+- 🕵️‍♂️ [Phase 3: Analyze George’s Activities](#phase-3-analyze-georges-activities)
+- 🕵️‍♀️ [Phase 4: Investigate Edward’s Activities](#phase-4-investigate-edwards-activities)
+- 📊 [Investigation Results](#investigation-results)
+- 🔧 [Incident Response & Remediation](#incident-response--remediation)
+- 🧠 [Key Takeaways](#key-takeaways)
 
 
 ---
