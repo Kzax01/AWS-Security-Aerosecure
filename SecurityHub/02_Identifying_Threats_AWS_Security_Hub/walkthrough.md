@@ -139,10 +139,17 @@ After we deployed our services ( it can take some times), we can see that we sta
 2. Navigate to **Users** > **Martina**.
 3. Create a new **Access Key**.
 
+#### 📂 Accessing S3 Buckets
+
+1. Search for `S3`.
+2. Click on the bucket with `cf-templates`.
+3. Access an object containing `designer` in its name.
+
+> ➡️ _Let's not forget the CF template we used on github deployed an S3 bucket. Hence why I didn't show any screenshots of me creating it._
 
 #### ❌ Deactivating and Deleting Access Keys
 
-1. It looks like she changed her mind.. so go return to **IAM**.
+1. Looks like she changed her mind.. so go return to **IAM**.
 2. Select **Martina’s user profile**.
 3. Under **Security Credentials**, deactivate and delete her access key.
 
@@ -173,6 +180,8 @@ After we deployed our services ( it can take some times), we can see that we sta
 1. Navigate to **S3** and download an object from a **cf-templates bucket**.
 2. Search for **DynamoDB**.
 3. Copy the **table name** (e.g., AeroSecureStack-DataTable-xxxx).
+
+> ➡️ _Remember, the S3 + DynamoDB were created thanks to the CF template we used earlier._
 
 #### 💻 Connecting to an EC2 Instance
 
