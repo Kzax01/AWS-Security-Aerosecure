@@ -92,12 +92,18 @@ Now, we deploy our digital traps—honeypots designed to lure attackers into rev
 
 > ➡️ It is perfect for our project.
 
+### Go back to the Security Hub
+After we deployed our services ( it can take some times), we can see that we start to have few findings by region.
+
+![sechub1stfidings]
+
 ---
 
 ## Phase 2: Monitoring Suspect #1 - Martina's Activities
 
 🚨 **Suspect Identified: Martina**  
-A seemingly innocent user—or is she? Let’s observe.
+
+> A seemingly innocent user... or is she? Let’s observe.
 
 ### 🔑 Logging in as Martina
 
@@ -133,15 +139,10 @@ A seemingly innocent user—or is she? Let’s observe.
 2. Navigate to **Users** > **Martina**.
 3. Create a new **Access Key**.
 
-#### 📂 Accessing S3 Buckets
-
-1. Search for `S3`.
-2. Click on the bucket with `cf-templates`.
-3. Access an object containing `designer` in its name.
 
 #### ❌ Deactivating and Deleting Access Keys
 
-1. Return to **IAM**.
+1. It looks like she changed her mind.. so go return to **IAM**.
 2. Select **Martina’s user profile**.
 3. Under **Security Credentials**, deactivate and delete her access key.
 
