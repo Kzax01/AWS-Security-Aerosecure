@@ -189,6 +189,8 @@ After we deployed our services ( it can take some times), we can see that we sta
 2. Select **AdminServer**.
 3. Click **Connect** and access the instance.
 
+> 💡 _George & Edward are using the EC2 that Martina created earlier_
+
 #### 🛠️ Running Commands on the Instance
 
 Run `ls`, `pwd`, and `sudo yum update`.
@@ -219,7 +221,7 @@ Run `ls`, `pwd`, and `sudo yum update`.
 
 1. Access **EC2 > AdminServer**.
 2. In the terminal, run:
-   ```sh
+   ```
    aws configure
    ```
 3. Enter Edward’s **Access Key & Secret**.
@@ -229,34 +231,35 @@ Run `ls`, `pwd`, and `sudo yum update`.
 
 1. Copy the **S3 bucket name** (e.g., `aerosecurestack-databucket-xxxxx`).
 2. In **EC2 Instance Connect**, attempt an unauthorized S3 download:
-   ```sh
-   aws s3 cp s3://aerosecurestack-databucket-xxxxx/secret-data.txt .
+   ```
+   aws s3 cp s3://<name of your s3 bucket>/<name of the document in s3 that you want to download>
+   ```
+   ```
+   aws dynamodb scan --table-name <enter your DB name>
    ```
 
-> **🚨 Caught red-handed! Edward is our intruder.**
+## 🔎 Phase 5: Security Analysis  
 
+After simulating user activities, we analyzed the findings in the Security Hub console.
 
----
+### 🔴 Critical Security Findings
+- High-severity findings were detected, including:
+  - Unauthorized access to honeypot resources.
+  - Suspicious DynamoDB scan operations.
+  - Potential data exfiltration identified through S3 copy operations.
 
-## The Investigation Results 🔍
+### ⏱️ Timeline Correlation
+- Suspicious activity timestamps perfectly aligned with Edward's session.
+- Security Hub pinpointed the user involved in the malicious actions.
+- The behavioral pattern (mass data access and copying) indicated possible data theft.
 
-Let's return to our Security Hub console (logged in as cloud_user) and examine the findings:
+### ✅ Finding Confirmation
+- CloudTrail logs confirmed Security Hub findings.
+- API calls matched those made during Edward's session.
+- The targets of these calls were the honeypot resources we deployed.
 
-1. Refresh the Security Hub page to see new alerts and findings
-2. Particularly examine the Critical alerts
-3. For each alert, analyze:
-   - Which user is involved?
-   - What action triggered the alert?
-   - Is it a legitimate or malicious action?
-
----
-
-### ➡️ The Verdict: **Edward is the compromised account! 🏴‍☠️**
-
-➡ Key evidence pointing to Edward:
-1. He accessed sensitive data in our S3 bucket containing our honeypots
-2. He performed an unauthorized scan on a DynamoDB table containing sensitive information
-3. These actions left traces in Security Hub as critical alerts
+➡️ **Verdict:** **Edward is the compromised account! 🏴‍☠️**  
+> **🚨 Caught red-handed! Edward is the intruder! 🚨**
 
 ---
 
@@ -265,8 +268,8 @@ Let's return to our Security Hub console (logged in as cloud_user) and examine t
 Now that we've identified our hacker, here are the recommended remediation steps:
 
 1. **Immediate Access Revocation**:
-   - Disable all of Edward's access keys
-   - Revoke his IAM permissions
+   - Disable all of Edward's access keys, as well as the other users.
+   - Revoke his IAM permissions or take drastic actions : **Delete his compromised account.**
    
 
 2. **Forensic Analysis**:
@@ -289,6 +292,8 @@ This project that we did together has demonstrated the importance of:
 - Setting up honeypots to detect malicious behavior
 - Using AWS Security Hub as a centralized threat detection tool
 - Applying the principle of least privilege to limit potential damage
+
+> ➡️ [**You can find here how to implement the least privilege + with Permissions Boundaries in AWS IAM.**](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/IAM/01_Limiting_Privileged_Access_IAM)
 
 ---
 
