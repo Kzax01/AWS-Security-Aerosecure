@@ -153,5 +153,3 @@ Looking for **Cloud Computing Security** articles? Check out my **Medium**!
   <img src="https://i.pinimg.com/originals/91/1d/91/911d914aaf6194489a3f5626bed2bd3a.gif" width="600" alt="Cool GIF">
 </p>
 
----
-> ###### _Big thanks to a Cloud Guru for providing the sandbox & their teachers for their guidance during this project_
