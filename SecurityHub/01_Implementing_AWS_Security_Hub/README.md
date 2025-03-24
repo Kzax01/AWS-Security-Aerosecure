@@ -1,6 +1,13 @@
 ## Part 1 : How to Implement AWS Security Hub for Threat Detection
 
-Welcome to this new project! 
+<p align="center">
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/Aerosecure%20sec%20hub.gif" width="80%" />
+</p>
+
+<p align="center">
+  <b>Welcome to this new 1st part project!</b>
+</p>
+
 
 ---
 

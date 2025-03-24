@@ -1,6 +1,13 @@
 ## 📌 How to Secure VPC Flow Logs in AWS 
 
-Welcome, cloud security agent! 🌐 An unknown threat is attempting to infiltrate **Airbus'** network infrastructure via AWS. The **AeroSecure** SOC has detected suspicious SSH login attempts and abnormal network traffic on our VPC. Your mission, should you choose to accept it, is to monitor, analyze, and respond to these incidents using AWS tools like **VPC Flow Logs**, **CloudWatch Logs**, **Amazon Athena**, and more. Ready to take on the challenge?
+<p align="center">
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/_Secure%20VPC%20Flow%20Logs%20in%20AWS.gif" width="80%" />
+</p>
+
+<p align="center">
+  <b>Welcome to this new project!</b>
+</p>
+
 
 ---
 
