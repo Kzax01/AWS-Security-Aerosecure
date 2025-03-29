@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/AWS%20WAF%20visu%20readme.gif" alt="AWS WAF visual" />
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/AWS%20WAF%20visu%20readme.gif" alt="AWS WAF visual" />
 </p>
 
 <p align="center">
