@@ -1,7 +1,7 @@
 # 📌 Securing Privileged Access with IAM Boundaries
 
 <p align="center">
-  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/leastprivilegekenza.gif" width="800">
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/leastprivilegekenza.gif" width="800">
 </p>
 
 <p align="center">
