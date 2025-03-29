@@ -1,7 +1,7 @@
 # 📌 Part 2 : Identifying and Remediating Threats with AWS Security Hub
 
 <p align="center">
-  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/SH-Finding-Flow.png" width="80%" />
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/SH-Finding-Flow.png" width="80%" />
 </p>
 
 <p align="center">
