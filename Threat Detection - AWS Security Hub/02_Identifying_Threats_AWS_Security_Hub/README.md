@@ -1,7 +1,7 @@
 ## 📌 Part 2 :How to Identify and Respond to Threats with AWS Security Hub
 
 <p align="center">
-  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/implement%20sec%20hub.gif" width="80%" />
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/Identify%20and%20Respond%20to%20Threats%20with%20AWS%20Security%20Hub%20part2.gif" width="80%" />
 </p>
 
 <p align="center">
