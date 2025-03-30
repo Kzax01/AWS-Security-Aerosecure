@@ -40,25 +40,25 @@ AeroSecure is more than just a theoretical project. Each security challenge is a
 ✅ **A detailed Walkthrough** – Step-by-step with screenshots and demonstrations.
 
 ### 🔑 **Data Protection & Compliance**
-- **[AWS Key Management Service (KMS)](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/AWS%20Key%20Management%20Service%20(KMS))**  
+- **[AWS Key Management Service (KMS)](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS))**  
   🔹 _Secure your secrets:_ Learn how to protect sensitive data with AWS KMS.
 
 ### 📂 **IAM Security**
-- **[Limiting Privileged Access in AWS IAM](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/IAM/01_Limiting_Privileged_Access_IAM)**  
+- **[Limiting Privileged Access in AWS IAM](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM)**  
   🔹 _Prevent unauthorized access:_ Implement effective IAM policies to limit privileged access.
-- **[Monitoring Users and Activity in AWS IAM](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/IAM/02_Monitoring_Users_AWS_IAM)**  
+- **[Monitoring Users and Activity in AWS IAM](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/02_Monitoring_Users_AWS_IAM)**  
   🔹 _Track and audit user activity:_ Set up comprehensive monitoring for user actions in AWS IAM.
 
 ### 🌐 **Network & Application Security**
-- **[Implementing AWS WAF](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/Implementing_AWS_WAF)**  
+- **[Implementing AWS WAF](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/Web%20Defense%20-%20Implementing%20AWS%20WAF)**  
   🔹 _Protect your web applications:_ Use AWS WAF to secure your apps against common attacks.
 - **[Secure VPC Flow Logs](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/Secure_VPC_Flow_Logs)**  
   🔹 _Monitor and detect VPC threats:_ Configure secure VPC Flow Logs for effective incident detection.
 
 ### 🚨 **Threat Detection & Incident Response**
-- **[Implementing AWS Security Hub](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/SecurityHub/01_Implementing_AWS_Security_Hub)**  
+- **[Implementing AWS Security Hub](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub)**  
   🔹 _Centralize security management:_ Set up AWS Security Hub to consolidate security alerts.
-- **[Identifying & Remediating Threats in AWS Security Hub](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub)**  
+- **[Identifying & Remediating Threats in AWS Security Hub](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub)**  
   🔹 _Identify and remediate threats:_ Learn to detect and respond to threats using AWS Security Hub.
 
 
