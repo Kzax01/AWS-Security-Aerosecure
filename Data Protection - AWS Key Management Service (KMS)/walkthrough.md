@@ -25,7 +25,7 @@ As we seen earlier, the scenario focuses on ensuring the confidentiality of sens
 # ⚙️ Project's Steps  
 
 ## 🔹 1. Creating an S3 Bucket
-![s3bucket](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/s3%20page.png)
+![s3bucket](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/s3%20page.png)
 
 📍 **Actions:**  
 1. Navigate to **Amazon S3** > Create a bucket.  
@@ -36,19 +36,22 @@ As we seen earlier, the scenario focuses on ensuring the confidentiality of sens
 The bucket will be used to store **sensitive files**, which will be encrypted with **AWS KMS**.  
 
 ## 🔹 2. Creating a Symmetric KMS Key  
+
+![KMSinfo](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/KMS%20info.png)
+
 📍 **Actions:**  
 1. Go to **AWS KMS** > Create a key.  
-![config key](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.1.png)
+![config key](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.1.png)
 2. Select **Symmetric Key** and **Encrypt/Decrypt**.  
 3. Choose **Single-Region Key** (AeroSecure’s security requirement).
 4. Assign an **alias** to the key  
-![alias](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.2.png)
+![alias](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.2.png)
 5. Define **key administrators**
-![define key admin](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.3.png)
+![define key admin](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.3.png)
 6. Apply the **access control policy**.  
-![key policy](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.4.png)
+![key policy](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%202.4.png)
 7. Create the key.  
-![key created](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/successfulkey.png)
+![key created](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/successfulkey.png)
 
 ➡️ FYI  I used this policy :
 ```
@@ -104,25 +107,25 @@ This key will encrypt **sensitive files** in S3 and restrict access using **IAM/
 ## 🔹 3. Attaching the KMS Key to the S3 Bucket (SSE-KMS Encryption)  
 📍 **Actions:**  
 1. Navigate to **S3**, select the bucket.  
-![property](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%203.1.png)
+![property](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%203.1.png)
 2. Go to the **Properties** tab.  
 3. In **Default Encryption**, click **Edit**.
 4. Select **Server-side encryption with AWS Key Management Service keys (SSE-KMS)**.  
 5. Choose the **created KMS key**  
 6. Enable **Bucket Key** to reduce KMS access costs.  
 7. Save the changes.
-![edit default encryption](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%203.2.png)
+![edit default encryption](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%203.2.png)
 
 📌 **Why?**  
 Ensures that all **uploaded objects** in this bucket are automatically **encrypted** using the defined **KMS key**.  
 
 ## 🔹 4. Encryption Verification  
 📍 **Actions:**  
-![s3upload](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/4.2%20s3%20upload.png)
+![s3upload](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/uploads3.png)
 1. Upload a file to the **S3 bucket**.  
 2. Click on the file and go to **Server-side encryption settings**.  
 3. Verify that **SSE-KMS** with the **alias/<user_name>** key is applied.
-![sse-kms](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%204.1.png)
+![sse-kms](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%204.1.png)
 
 📌 **Why?**  
 This ensures that all **stored objects** are properly **protected** by AWS KMS.  
@@ -130,13 +133,13 @@ This ensures that all **stored objects** are properly **protected** by AWS KMS.
 ## 🔹 5. Scheduling the Deletion of the KMS Key  
 📍 **Actions:**  
 1. Go back to **AWS KMS**.  
-![kms](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%20page.png)
+![kms](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%20page.png)
 2. Select the **key you created**   
 3. Navigate to **Key Actions** > **Schedule Key Deletion**.  
-![keyactions](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%205.png)
+![keyactions](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%205.png)
 4. Set a **waiting period** (between **7 and 30 days**).  
 5. Check the confirmation box and confirm deletion.  
-![deletion](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%205.1%20deletion%20key.png)
+![deletion](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms%205.1%20deletion%20key.png)
 
 📌 **Why?**  
 A **deleted key** makes all **encrypted data permanently inaccessible**.  
@@ -172,7 +175,6 @@ The **waiting period** allows cancellation in case of an error.
 # 🏆 Conclusion  
 You have successfully **secured AeroSecure’s sensitive data** by implementing **strong encryption** with **AWS KMS and Amazon S3**. 🚀  
 This type of implementation is **critical in aerospace**, where protecting **communications and critical systems** is a top priority.  
-
 
 
 

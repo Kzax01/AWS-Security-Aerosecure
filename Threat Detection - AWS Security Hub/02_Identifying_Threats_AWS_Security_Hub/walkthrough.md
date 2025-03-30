@@ -39,9 +39,9 @@ As seen previously, the mission at AeroSecure is to protect StratoJet’s top-se
 
 ### 🎯 Step 1: Configure AWS Config
 
-AWS Config will be our ever-watchful eye, logging every move inside our environment.
+![configinfo](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/how-AWSconfig-works-2.png)
 
-![awsconfig](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/aws%20config%20main%20page.png)
+AWS Config will be our ever-watchful eye, logging every move inside our environment.
 
 
 1. Type `Config` in the AWS search bar.
@@ -50,17 +50,15 @@ AWS Config will be our ever-watchful eye, logging every move inside our environm
 4. On the review page, click **Confirm** at the bottom.
 5. In the AWS Config Dashboard, navigate to **Settings** (left menu).
 
-![config](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/config%202.png)
+![config](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/config%202.png)
 
 > 💡AWS config will automatically create a bucket s3 to store the records
 
-![s3created](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/config%203%20s3%20bucket%20created.png)
-
+![s3created](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/config%203%20s3%20bucket%20created.png)
 
 ### 🕵️ Step 2: Activate Security Hub
 
-![sechub](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/sec%20hub%20main%20page.png)
-
+![sechub](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/sec%20hub%20info.png)
 
 Our **command center** is Security Hub. Let’s turn it on.
 
@@ -71,17 +69,17 @@ Our **command center** is Security Hub. Let’s turn it on.
 
 ### 🪤 Step 3: Deploy Your Honeypots
 
-![CF](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/cloud%20formation%20main%20page.png)
+![CF](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/cf%20infographie.png)
 
 Now, we deploy our digital **traps—honeypots** designed to lure attackers into revealing themselves.
 
-![cf1](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/CF-1%20creating%20stack.png)
+![cf1](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/CF-1%20creating%20stack.png)
 
 1. Open a new tab and search for `CloudFormation`.
 3. Click **Create Stack > "Build from Infrastructure composer"**.
 4. Then click on **"create in infrastructure composter"**
 
-![cg2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/CF-2%20deploying%20template.png)
+![cg2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/CF-2%20deploying%20template.png)
 
 5. A new page will open, click **Create template**.
 6. Copy all the **template code** from GitHub.
@@ -91,7 +89,7 @@ Now, we deploy our digital **traps—honeypots** designed to lure attackers into
 10. Name the stack as you want; for this project mine is `AeroSecureStack`.
 11. Check the box under **Capabilities**, then click **Create stack**.
 
-![cfdone](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/CF-3%20deployed%20done.png)
+![cfdone](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/CF-3%20deployed%20done.png)
 
 
 [🔗 CloudFormation Template Link](https://github.com/arcuricm/Hands-on-Security-Hub/blob/main/OriginalChallenge.yml)
@@ -100,7 +98,7 @@ Now, we deploy our digital **traps—honeypots** designed to lure attackers into
 
 ### 📌 What have we deployed in that Cloudformation template ?
 
-![service](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/cf5-what%20have%20we%20deployed%202.1.png)
+![service](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/cf5-what%20have%20we%20deployed%202.1.png)
 
 
 | Resource              | Type                  | Purpose in Honeypot/Security Monitoring                                                                 |
@@ -122,13 +120,13 @@ Now, we deploy our digital **traps—honeypots** designed to lure attackers into
 
 > ➡️ It is perfect for our project.
 
-![services2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/CF-5%20what%20have%20we%20deployed.png)
+![services2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/CF-5%20what%20have%20we%20deployed.png)
 
 
 ### Go back to the Security Hub
 After we deployed our services ( it can take some times), we can see that we start to have few findings by region.
 
-![sechub1stfidings](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/sec%20hub%201st%20findings.png)
+![sechub1stfidings](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/sec%20hub%201st%20findings.png)
 
 
 ---
@@ -151,7 +149,7 @@ After we deployed our services ( it can take some times), we can see that we sta
 
 #### 🏗️ Creating a VPC
 
-![vpc](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/martinavpc1.png)
+![vpc](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/martinavpc1.png)
 
 1. Search for `VPC` in AWS.
 2. Click **Create VPC**.
@@ -162,7 +160,7 @@ After we deployed our services ( it can take some times), we can see that we sta
 
 1. While the VPC is being created, search for `EC2`.
 
-![kp](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/martina%202%20KP.png)
+![kp](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/martina%202%20KP.png)
 2. Create a **key pair** Mine was named `AeroSecureKP` for this project.
 3. Navigate to **EC2 Dashboard** > **Instances**.
 
@@ -172,11 +170,11 @@ After we deployed our services ( it can take some times), we can see that we sta
 6. Choose **AeroSecureKP** as the key pair.
 7. Enable **Auto-assign public IP**.
 
-![enable autoip](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/martina%20enable%20auto%20ip.png)
+![enable autoip](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/martina%20enable%20auto%20ip.png)
 
 8. Click **Launch instance**.
 
-![launchec2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/martina%20ec2%20creating.png)
+![launchec2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/martina%20ec2%20creating.png)
 
 
 #### 🔓 Managing IAM Access Keys
@@ -185,7 +183,7 @@ After we deployed our services ( it can take some times), we can see that we sta
 2. Navigate to **Users** > **Martina**.
 3. Create a new **Access Key**.
 
-![Access keys ](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/martina%20AK.png)
+![Access keys ](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/martina%20AK.png)
 
 
 #### 📂 Accessing S3 Buckets
@@ -230,7 +228,7 @@ After we deployed our services ( it can take some times), we can see that we sta
 2. Search for **DynamoDB**.
 3. Copy the **table name** (e.g., AeroSecureStack-DataTable-xxxx).
 
-![db](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/george%20dynamodb.png)
+![db](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/george%20dynamodb.png)
 
 
 > ➡️ _Remember, the S3 + DynamoDB were created thanks to the CF template we used earlier._
@@ -254,7 +252,7 @@ Run `ls`, `pwd`, and `sudo yum update`.
 | `sudo yum update`        | Updates the system's packages using `yum` (a package manager for Red Hat-based Linux distributions). This ensures that the system has the latest security patches and updates. | Ensures the EC2 instance is secure and up to date, preventing vulnerabilities that could interfere with project tasks, like security emulation. |
 
 
-![ec2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/george%20ec2.png)
+![ec2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/george%20ec2.png)
 
 
 > **George is interacting with sensitive data. Is he our intruder?**
@@ -283,7 +281,7 @@ Run `ls`, `pwd`, and `sudo yum update`.
 
 1. Access **EC2 > The server**.
 
-![ec2 logged in](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/edward%20ec2%20log%20in.png)
+![ec2 logged in](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/edward%20ec2%20log%20in.png)
 
 2. In the terminal, run:
    ```
@@ -302,7 +300,7 @@ Run `ls`, `pwd`, and `sudo yum update`.
    ```
    aws dynamodb scan --table-name <enter your DB name>
    ```
-![scan](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/edward%20scan%20db.png)
+![scan](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/edward%20scan%20db.png)
 
 ### ➡️ Why is it an issue that Edward scanned these resources ?
 
@@ -327,7 +325,7 @@ After simulating user activities, we analyzed the findings in the Security Hub c
 
 ### 🔴 Critical Security Findings
 
-![sechub](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/phase%205%20findings%20after%20edwards.png)
+![sechub](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/phase%205%20findings%20after%20edwards.png)
 
 - High-severity findings were detected, including:
   - Unauthorized access to honeypot resources.
@@ -336,7 +334,7 @@ After simulating user activities, we analyzed the findings in the Security Hub c
 
 ### ⏱️ Timeline Correlation
 
-![timeline](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/phase%205%20%20timestamp%20match.png)
+![timeline](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/phase%205%20%20timestamp%20match.png)
 
 - Suspicious activity timestamps perfectly aligned with Edward's session.
 - Security Hub pinpointed the user involved in the malicious actions.
@@ -358,12 +356,12 @@ Now that we've identified our hacker, here are the recommended remediation steps
 
 1. **Immediate Access Revocation**:
 
-![kp removed](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/revoke%20all%20%20AK.png)
+![kp removed](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/revoke%20all%20%20AK.png)
 
    - Disable all of Edward's access keys, as well as the other users.
    - Revoke his IAM permissions or take drastic actions : **Delete his compromised account.**
 
-![delete edward](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/edward%20deleted.png)
+![delete edward](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/edward%20deleted.png)
 
 
 2. **Forensic Analysis**:
@@ -387,11 +385,10 @@ This project that we did together has demonstrated the importance of:
 - Using AWS Security Hub as a centralized threat detection tool
 - Applying the principle of least privilege to limit potential damage
 
-![kp best practice](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub/screenshots/Access%20key%20best%20practices.png)
+![kp best practice](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/02_Identifying_Threats_AWS_Security_Hub/screenshots/Access%20key%20best%20practices.png)
 
 
-> ➡️ [**You can find here how to implement the least privilege + with Permissions Boundaries in AWS IAM.**](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/IAM/01_Limiting_Privileged_Access_IAM)
-
+> ➡️ [**You can find here how to implement the least privilege + with Permissions Boundaries in AWS IAM.**](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub)
 ---
 
 *Congratulations! Thanks to this project, we successfully identified and contained an insider threat using AWS Security Hub. These skills are essential for any modern cybersecurity professional.*

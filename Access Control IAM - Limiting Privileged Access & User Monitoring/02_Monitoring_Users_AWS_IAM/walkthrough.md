@@ -24,20 +24,20 @@ As we seen earlier, the scenario involves monitoring access for AeroSecure, wher
 ## 🚀 Step 1: Generate a Credential Report  
 **IAM → Credential Report**  
 
-![credreport](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/credentialreportdl.png)
+![credreport](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/02_Monitoring_Users_AWS_IAM/screenshots/credentialreportdl.png)
 
 
 1. Click **"Download Report"** 📥 (CSV contains MFA status, password rotation, last login).  
 > - **Why?** → Identify inactive users, accounts without MFA, and potential security risks.  
 
-![reportexample](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/01credreport.png)
+![reportexample](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/02_Monitoring_Users_AWS_IAM/screenshots/credentialreportdl.png)
 
 ---
 
 ## 🔍 Step 2: Analyze User Activity (Access Advisor)  
 **IAM → Users → Create users → select one → Access Advisor**  
 
-![lastaccessed](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/2-last-accessed.png)
+![lastaccessed](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/02_Monitoring_Users_AWS_IAM/screenshots/2-last-accessed.png)
 
 - Check the **"Last accessed"** column to detect unused permissions.  
 > - **Why?** → Remove unnecessary access to minimize the attack surface.  
@@ -47,9 +47,12 @@ As we seen earlier, the scenario involves monitoring access for AeroSecure, wher
 ## 🚀 Step 3: Create a CloudTrail Trail  
 **Navigate to AWS CloudTrail → Dashboard → Create trail**  
 
+![cloudtrailinfio](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/02_Monitoring_Users_AWS_IAM/screenshots/cloudtrailinfo.png)
+
 ### ➡ Configure Trail Attributes  
 
-![step1-ct](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/4.1-CT.png)
+![step1-ct](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/02_Monitoring_Users_AWS_IAM/screenshots/4.1-CT.png)
+
 - **Name the Trail name that you're creating**
 - **Storage location:** Create a new S3 bucket (for long-term log storage).  
 - **Trail log bucket and folder:** Default bucket name (AWS generates a secure name).
@@ -64,27 +67,28 @@ Click **Next** ⏭️
 
 ## 🔍 Step 4: Select Events to Log  
 
-![eventlog](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/4.2-ct-event.png)
+![eventlog](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/02_Monitoring_Users_AWS_IAM/screenshots/4.2-ct-event.png)
+
 - ✅ **Management events** (Tracks AWS service activity)  
 - ✅ **Data events** (Monitors resource access)  
 - ✅ **Insights events** (Detects abnormal activity)  
 
 ### Configure Management Events  
 
-![managementevents](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/4.3-CT-managementevent.png)
+![managementevents](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/02_Monitoring_Users_AWS_IAM/screenshots/4.3-CT-managementevent.png)
 - **Select:** ✅ **Read + Write**  
 > - **Why?** → Captures all actions (read/write) for complete monitoring.  
 
 ### Configure Data Events  
 
-![dataevent](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/4.4-CT-S3config.png)
+![dataevent](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/02_Monitoring_Users_AWS_IAM/screenshots/4.4-CT-S3config.png)
 - **S3:** ✅ **Read + Write** (Monitors bucket access).  
 - **Lambda:** ✅ **All regions + All functions** (Detects function execution).  
 > - **Why?** → Identifies suspicious access to files and Lambda executions.  
 
 ### Configure Insights Events  
 
-![api call](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/4.5-CT-.png)
+![api call](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/02_Monitoring_Users_AWS_IAM/screenshots/4.5-CT-.png)
 - **Enable:** ✅ **API call rate** (Detects unusual API spikes).  
 > - **Why?** → Helps detect brute-force or credential stuffing attacks.  
 
@@ -93,11 +97,11 @@ Click **Next** ⏭️
 ## ✅ Step 5: Finalize and Activate the Trail
 1. Click **Next** ⏭️  
 
-![ctdone](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/5-ct-donecreated.png)
+![ctdone](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/02_Monitoring_Users_AWS_IAM/screenshots/5-ct-donecreated.png)
 2. Review the configuration and click **"Create trail"** 🎯  
 3. 🚀 **Congratulations!** Your CloudTrail is now active and monitoring AWS actions. 
 
-![ctdone1](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/02_Monitoring_Users_AWS_IAM/screenshots/example%20of%20what%20events.png)
+![ctdone1](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/02_Monitoring_Users_AWS_IAM/screenshots/example%20of%20what%20events.png)
 
 ---
 

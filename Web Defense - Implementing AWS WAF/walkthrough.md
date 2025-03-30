@@ -25,13 +25,17 @@ As seen previously, the objective is to deploy an AWS Web Access Control List (W
 
 ## 🎯 **Phase 1: Creating the Web ACL – The Defense Wall**  
 
+![infowafdetailed](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/WAF%20AWS%20presentationdetailed.png)
+
 ### 👨‍💻 Step 1: Access AWS WAF  
-![introwaf](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf%20presentation.png)
+![introwaf](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf%20presentation.png)
 1. Log in to the **AWS console**.  
 2. In the top search bar, type **"WAF & Shield"** and select the service.  
 
 
 ### 👨‍💻 Step 2: Create the Web ACL
+
+![create acl](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf%201.png)
 1. Under **Get started with AWS WAF**, click **Create web ACL**.  
 2. **Web ACL Name** 🏷️
 3. **CloudWatch metric name** 📊 
@@ -45,7 +49,7 @@ This is required if you're protecting **ALB, API Gateway, or AppSync**. If you'r
 
 ## ⚔️ **Phase 2: Adding AWS Managed Rules – The First Layer of Defense**  
 
-![managed rules](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf2.png)
+![managed rules](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf2.png)
 
 AWS offers **Managed Rules** that provide immediate protection without manual configuration. Let’s activate them!  
 
@@ -59,7 +63,7 @@ AWS offers **Managed Rules** that provide immediate protection without manual co
    ✔️ **SQL database**: Defends against SQL injection attacks.  
 4. Scroll down and click **Add rules**.
 
-![freerules](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf3.png)
+![freerules](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf3.png)
 
 > 📌 *Why these rules?*  
 >- **Core rule set**: Provides **immediate** protection against various web threats.  
@@ -75,14 +79,14 @@ Our logs show attackers attempting to use **malicious HTTP headers** to inject c
 
 ### 👨‍💻 Step 4: Create a Custom Rule for HTTP Header Injection
 
-![ownrule](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf4.png)
+![ownrule](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf4.png)
 1. Under **Rules**, click **Add rules** > **Add my own rules and rule groups**.  
 2. Under **Rule type**, select **Rule builder**.  
 3. Ensure **Rule visual editor** is selected.  
 
 4. **Rule Name** 🏷️: Enter **HTTPHeaderInjection**.  
 5. **Type**: Select **Regular rule**.  
-![ruleset](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf5.png)
+![ruleset](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf5.png)
 
 6. Under **If a request**, choose **matches the statement**.  
 7. Under **Statement > Inspect**, select **Single header**.  
@@ -91,20 +95,20 @@ Our logs show attackers attempting to use **malicious HTTP headers** to inject c
 10. **String to match**: Enter **`%0d%0aLocation`**.  
 11. **Text transformation**: Set to **None**.  
 12. **Action**: Select **Block** (to block the request).  
-![blockrule](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf6.png)
+![blockrule](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf6.png)
 
 💡 **Why this rule?**  
 Attackers often use **special characters** in the **User-Agent** header to **inject malicious code** and **redirect users**. This rule blocks such requests instantly.  
 
 🎯 Click **Add rule** once all settings are configured.  
-![add all rules](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf7.png)
+![add all rules](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf7.png)
 
 ---
 
 ## 🚀 **Phase 4: Final Configuration & Validation**  
 
 ### 🎯 Step 5: Prioritizing Rules  
-![ruleorder](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf8.png)
+![ruleorder](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf8.png)
 1. On the **Add rules and rule groups** page, click **Next**.  
 2. Under **Set rule priority**, select **HTTPHeaderInjection** and move it to **second position**.  
 3. Click **Next**.  
@@ -115,7 +119,7 @@ AWS Managed Rules should be evaluated first, but **our custom rule must be high 
 ---
 
 ### 🎯 Step 6: Verify CloudWatch Metrics
-![cw](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf9.png)
+![cw](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf9.png)
 1. Ensure that each rule has **an active CloudWatch metric**.  
 2. Click **Next**.  
 
@@ -125,14 +129,15 @@ CloudWatch allows **real-time attack monitoring** and helps adjust rules when ne
 ---
 
 ### 🎯 Step 7: Final Web ACL Creation  
-![review](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf10.png)
-![2ndreview](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf11.png)
+![review](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf10.png)
+
+![2ndreview](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf11.png)
 1. On the **Review and create web ACL** page, check that everything is correct.  
 2. Scroll down to **Web ACL rule capacity units used** and ensure it does not exceed **1500 WCUs**.  
 3. Click **Create web ACL**.  
 
 🎉 **Congratulations!** You have successfully created an **AWS WAF shield** against cloud threats! 🎯🔥  
-![done](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf12.png)
+![done](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf12.png)
 ---
 
 ## 📊 **Validating & Monitoring Attacks**  
@@ -143,7 +148,8 @@ Now that the WAF is in place, here’s how to **verify it’s working**:
 1. Go to your **waf** Web ACL.  
 2. Click on **Logging and metrics**.  
 3. Enable **AWS WAF logs** to see which requests are being blocked.
-![wafdashboard](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Implementing_AWS_WAF/Screenshots/waf13.png)
+
+![wafdashboard](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Web%20Defense%20-%20Implementing%20AWS%20WAF/Screenshots/waf13.png)
 
 ✔️ **Analyze attacks with CloudWatch**  
 1. Open **CloudWatch Metrics**.  

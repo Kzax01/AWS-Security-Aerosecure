@@ -53,7 +53,7 @@ We'll configure VPC Flow Logs to send data to both **S3** and **CloudWatch** for
      | **Log format**        | AWS default format          |
    - Click **Create flow log** ✅
    
-![s3flowlog](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc%202%20-%20S3flowlog.png)
+![s3flowlog](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/S3generated%20logs%20from%20vpcflowlog.png)
 
 3. **Verify the bucket policy**
    - Go to your **S3 bucket > Permissions** tab
@@ -178,7 +178,7 @@ We'll create network traffic to generate useful **ACCEPT** and **REJECT** logs, 
 
 4.**Create it**
 
-![done](![done](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc-16-metricfilterdone.png)
+![done](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Secure_VPC_Flow_Logs/screenshots/vpc-16-metricfilterdone.png)
 
 ---
 

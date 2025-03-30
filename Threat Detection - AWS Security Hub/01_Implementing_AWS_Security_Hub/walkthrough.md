@@ -27,6 +27,8 @@ As mentioned before, The goal is to implement AWS Security Hub for continuous co
 
 ## 🛠️ **Phase 1: Creating an SNS Topic – Real-Time Alerts**  
 
+![snsdetailed](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/SNSdetailedexplanation.png)
+
 📌 **Why?** We need an SNS topic to send email alerts whenever **AWS Security Hub detects a critical security issue**.  
 
 ### 👨‍💻 **Step 1: Create an SNS Topic**  
@@ -40,13 +42,13 @@ As mentioned before, The goal is to implement AWS Security Hub for continuous co
    - **Subscribers**: `Everyone`  
 7. Click **Create topic**.  
 
-![creation topics](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/SNS-1.png)
+![creation topics](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/SNS-1.png)
 
 
 
 ### 👨‍💻 **Step 2: Add an Email Subscription**  
 
-![subcription](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/SNS-2.png)
+![subcription](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/SNS-2.png)
 
 1. Click **Create subscription**.  
 2. **Protocol**: Select **Email**.  
@@ -55,13 +57,13 @@ As mentioned before, The goal is to implement AWS Security Hub for continuous co
 5. Check your **email inbox** for a confirmation email. Click **Confirm subscription**.  
 6. Return to **AWS SNS** and refresh. The status should now be **Confirmed**.  
 
-![snsemail](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/sns3.png)
+![snsemail](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/sns3.png)
 
 ---
 
 ## 🔄 **Phase 2: Automating Security Alerts with Amazon EventBridge**  
 
-![EB](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/EB-1.png)
+![EB](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/EB-1.png)
 
 > 📌 **Why?** We need to detect **important Security Hub findings** (e.g., misconfigurations, policy violations) and trigger an **SNS notification**.  
 
@@ -72,7 +74,7 @@ As mentioned before, The goal is to implement AWS Security Hub for continuous co
 4. **Description but it's optional**: `"Triggers an email alert when a Security Hub finding is generated"`  
 5. Click **Next**.  
 
-![EC2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/EB-2.png)
+![EC2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/EB-2.png)
 
 
 ### 👨‍💻 **Step 4: Define the Event Pattern**  
@@ -83,9 +85,9 @@ As mentioned before, The goal is to implement AWS Security Hub for continuous co
 5. **Severity**: Select `HIGH` and `CRITICAL`  
 6. Click **Next**.  
 
-![eb3](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/EB-3.png)
+![eb3](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/EB-3.png)
 
-![eb4](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/EB-4.png)
+![eb4](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/EB-4.png)
 
 
 ➡️ The policy should look like that :
@@ -110,7 +112,7 @@ As mentioned before, The goal is to implement AWS Security Hub for continuous co
 
 ### 👨‍💻 **Step 5: Set the Target to SNS**  
 
-![eb5](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/EB-5.png)
+![eb5](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/EB-5.png)
 
 1. **Target type**: `AWS service`  
 2. **Select a target**: `SNS topic`  
@@ -125,8 +127,9 @@ As mentioned before, The goal is to implement AWS Security Hub for continuous co
 
 ### 👨‍💻 **Step 6: Enable AWS Config**  
 
-![config](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/config%20main%20page.png)
+![config](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/config%20main%20page.png)
 
+![awsconfiginfo](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/how-AWSconfig-works-2.png)
 1. In AWS Console, search for **AWS Config**.  
 2. Click **Set up AWS Config**.  
 3. Click **1-click setup**.  
@@ -142,7 +145,9 @@ As mentioned before, The goal is to implement AWS Security Hub for continuous co
 
 ### 👨‍💻 **Step 7: Enable Security Hub**  
 
-![SH](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/Sec%20Hub%20main%20page.png)
+![SH](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/Sec%20Hub%20main%20page.png)
+ 
+![shinfo](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/sec%20hub%20info.png)
 
 1. Search for **Security Hub** in the AWS Console.  
 2. Click **Go to Security Hub**.  
@@ -152,13 +157,13 @@ As mentioned before, The goal is to implement AWS Security Hub for continuous co
 - ✅ **CIS AWS Foundations Benchmark** – Align cloud security with CIS best practices.  
 - ✅ **NIST 800-53 Revision 5** – Enforce compliance with NIST security controls.  
 
-![compliance](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/compliance%20sec%20hub.png)
+![compliance](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/compliance%20sec%20hub.png)
 
 4. Click **Enable Security Hub**.  
 
-![sc created](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/sec%20hub%20created.png)
+![sc created](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/sec%20hub%20created.png)
 
-![FYI](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/2H%20sub%20hub%20for%20findings.png)
+![FYI](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/2H%20sub%20hub%20for%20findings.png)
 
 > 💡 It can take some times before seeing some findigs! 
 
@@ -166,7 +171,7 @@ As mentioned before, The goal is to implement AWS Security Hub for continuous co
 1. In **Security Hub**, go to **Findings**.  
 2. You will soon see security violations reported!  
 
-![1stfindings](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/1st%20findings.png)
+![1stfindings](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/1st%20findings.png)
 
 ---
 
@@ -182,7 +187,7 @@ As mentioned before, The goal is to implement AWS Security Hub for continuous co
 2. Click **Security Groups** under **Network & Security**.  
 3. Click **Create security group (on top of the page)**.
 
-![sg config](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/SG%20Rules.png)
+![sg config](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/EC2-VPC.png)
 
 4. **Name it as you want** 🏷️  
 5. **Add a Description**: `"Security group of Aerosecure"`  
@@ -202,9 +207,9 @@ As mentioned before, The goal is to implement AWS Security Hub for continuous co
 3. You should see new **FAILED** findings.  
 4. **Check your email inbox** – you should receive an alert from SNS!  
 
-![final findings](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/sec%20hub%20final%20findings.png)
+![final findings](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/sec%20hub%20final%20findings.png)
 
-![findings](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/SecurityHub/01_Implementing_AWS_Security_Hub/screenshots/sec%20hub%20final%20findings%20-2.png)
+![findings](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Threat%20Detection%20-%20AWS%20Security%20Hub/01_Implementing_AWS_Security_Hub/screenshots/sec%20hub%20final%20findings%20-2.png)
 
 >💡 - **AWS Security Hub Findings** – Serve to identify, prioritize, and remediate security risks and compliance gaps in your AWS environment.
 

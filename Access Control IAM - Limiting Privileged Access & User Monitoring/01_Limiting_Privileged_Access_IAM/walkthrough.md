@@ -1,4 +1,4 @@
-# 📌 Securing Privileged Access with IAM Boundaries
+# 📌 Part 1 : Securing Privileged Access with IAM Boundaries
 
 <p align="center">
   <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/leastprivilegekenza.gif" width="800">
@@ -21,6 +21,8 @@ As we seen earlier, the scenario involves securing the cloud infrastructure for 
 
 --- 
 
+![IAMdocu](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/IAMdocumentation.png)
+
 ## Step 1 : Create a Group Controlled via an AWS-Managed Policy and Assign Users to a Group 👥
 
 
@@ -28,14 +30,14 @@ As we seen earlier, the scenario involves securing the cloud infrastructure for 
    - Log in to the AWS Console  
    - Navigate to **IAM > Users**  
    
-![create user](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/1-users_test_creation.png)
+![create user](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/1-users_test_creation.png)
+
 
 2. **Create a New User**  
    - Click **Create User**  
    - Enter a name and confirm : we'll need at least 2 extra users to test the permissions boundaries.
 
-![ourtestuser](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/2_users_tests.png)
-
+![ourtestuser](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/2_users_tests.png)
 
 3. **Access User Groups** 🔄
 
@@ -54,7 +56,7 @@ As we seen earlier, the scenario involves securing the cloud infrastructure for 
      * *sysadmin-2*
      * *sysadmin-3*
 
- ![usergp](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/3_policy_attached.png) 
+ ![usergp](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/3_policy_attached.png)
 > 💡This adds these pre-existing users to your new group, so they'll inherit the group's permissions
  
 
@@ -111,7 +113,7 @@ As we seen earlier, the scenario involves securing the cloud infrastructure for 
 
 8. **Finalize group creation** ✅
 
-![usergrp](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/4-group_user_test_created.png)
+![usergrp](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/4-group_user_test_created.png)
    
    - Review your selections to ensure accuracy
    - Click **Create group**
@@ -136,7 +138,8 @@ As we seen earlier, the scenario involves securing the cloud infrastructure for 
 3. **Access permissions boundary settings** 📋
    - Click the arrow next to **Permissions boundary (not set)** to expand it
    - Permissions boundaries act as an upper limit on what a user can do, regardless of what their attached policies allow
-![PBEC2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/5-setPB-EC2-test-users.png)
+![PBEC2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/5-setPB-EC2-test-users.png)
+   - 
 
 4. **Begin setting the boundary** 🚧
    - Click **Set boundary**
@@ -146,7 +149,7 @@ As we seen earlier, the scenario involves securing the cloud infrastructure for 
 5. **Find the EC2 policy** 🔎
    - In the **Filter policies** field, type "ec2"
 > 💡 This filters the available policies to show only those related to EC2
-![ec2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/6-PB%20ec2.png)
+![ec2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/6-PB%20ec2.png)
 
 6. **Select EC2 policy** 💻
    - Select **AmazonEC2FullAccess**
@@ -157,7 +160,7 @@ As we seen earlier, the scenario involves securing the cloud infrastructure for 
    - Click **Set boundary**
    - This finalizes the permissions boundary, restricting this admin to only EC2 operations despite having AdministratorAccess through the group
 
-![ec2done](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/7-pb-ec2-set.png)
+![ec2done](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/7-pb-ec2-set.png)
 
 ---
 
@@ -202,8 +205,8 @@ As we seen earlier, the scenario involves securing the cloud infrastructure for 
    - This is testing whether the permissions boundary is working
 
 You should see this :
-![failed1](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/10-ec2-cannot-be-created.png)
-   
+![failed1](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/10-ec2-cannot-be-created.png)
+
 
 4. **Try viewing EC2 instances** ❌
    - Click **Instances (running)**
@@ -217,8 +220,8 @@ You should see this :
    - You should receive another access denied message
    - This further confirms the boundary is working correctly
 
-![ec2failed2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/8-ec2-cannot-create.png)
-   
+![ec2failed2](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/8-ec2-cannot-create.png)
+
 
 8. **Return to main console** 🏠
    - Navigate back to the AWS Management Console
@@ -241,7 +244,8 @@ You should see this :
     - Click **Create bucket**
     - The bucket should be created successfully
     
-![S3created](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/11-s3-created.png)
+![S3created](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/11-s3-created.png)
+
 
 > 💡 This confirms that S3 operations are allowed within the boundary.
 
@@ -256,12 +260,11 @@ You should see this :
    - You should receive an "Access Denied" message
    - This confirms that the EC2-only admin cannot access S3 resources
 
-![nos3](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/12-s3-cannot-be-created.png)
-
+![nos3](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/12-s3-cannot-be-created.png)
 2. **Launch EC2**
 - Unlike the previous one, creating an EC2 will actually work as per as the permission assigned.
 
-![ec2created](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/IAM/01_Limiting_Privileged_Access_IAM/screenshots/13-ec2created%20test.png)
+![ec2created](https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Access%20Control%20IAM%20-%20Limiting%20Privileged%20Access%20%26%20User%20Monitoring/01_Limiting_Privileged_Access_IAM/screenshots/13-ec2created%20test.png)
 
 ---
 
