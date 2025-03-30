@@ -1,8 +1,9 @@
 # 📌 Creating and Securing Customer Managed Keys with AWS KMS
 
 <p align="center">
-  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/Site-Merch_AWS-Security-Blog_SocialMedia_2.png" alt="AWS Security Blog Visual" />
+  <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/kms-kenza-banner.gif"alt="Kenza Aerospace Banner" width="100%">
 </p>
+
 
 <p align="center">
 Welcome back to this exciting project! 
