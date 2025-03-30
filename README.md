@@ -1,6 +1,6 @@
 # 🚀 AeroSecure: Bridging Aerospace & Cloud Security 
 
- <p align="center">
+<p align="center">
   <img src="https://github.com/Kzax01/AWS-Security-Aerosecure/blob/main/Data%20Protection%20-%20AWS%20Key%20Management%20Service%20(KMS)/screenshots/github%20banner%20aerosecure%20by%20kenza.gif" alt="Kenza Aerospace Banner" width="100%">
 </p>
 
