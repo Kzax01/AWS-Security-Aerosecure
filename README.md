@@ -61,7 +61,6 @@ AeroSecure is more than just a theoretical project. Each security challenge is a
 - **[Identifying & Remediating Threats in AWS Security Hub](https://github.com/Kzax01/AWS-Security-Aerosecure/tree/main/SecurityHub/02_Identifying_Threats_AWS_Security_Hub)**  
   🔹 _Identify and remediate threats:_ Learn to detect and respond to threats using AWS Security Hub.
 
-➡️ _Many more projects with a given scenario will be added later on!_
 
 ---
 
