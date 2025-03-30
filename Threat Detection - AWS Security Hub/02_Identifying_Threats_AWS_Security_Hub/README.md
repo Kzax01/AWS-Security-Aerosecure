@@ -13,9 +13,11 @@
 
 ## 🕵️ AeroSecure Incident Report: **Who is the Intruder?**  
 
-🚀 **Mission:** Protect StratoJet’s **top-secret electric propulsion technology** from cyber threats.  
-🔍 **Challenge:** Find the compromised account. 
-🛡️ **Your Role:** Follow the clues, analyze the evidence, and uncover the truth.  
+- 🚀 **Mission:** Protect StratoJet’s **top-secret electric propulsion technology** from cyber threats.  
+- 🔍 **Challenge:** Find the compromised account. 
+- 🛡️ **Your Role:** Follow the clues, analyze the evidence, and uncover the truth.  
+
+> This projet is made to analyse bad behavior among users ; how to recognise suspicious behavior. (Obviously I can't do a real honeypot in the AWS console - it's against the rule.. hence why I decided to make this simulation). 
 
 ---
 
