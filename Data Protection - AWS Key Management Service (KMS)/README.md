@@ -40,7 +40,7 @@ To ensure the confidentiality of sensitive data stored in **Amazon S3**, AeroSec
 
 ---
 
-## ⚙️ Poject's Overview
+## ⚙️ Project's Overview
 
 ### 🔹 1. Create an S3 Bucket
 - Define a new S3 bucket to store sensitive files that will be encrypted using AWS KMS.
