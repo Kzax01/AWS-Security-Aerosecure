@@ -12,7 +12,7 @@
 ---
 
 ## 🚨 Attack Context
-Cybercriminals are trying to infiltrate our infrastructure by exploiting network security vulnerabilities. Their goal is to gain unauthorized access to critical data. Our mission is to identify their attempts, block their access, and alert our teams for a rapid response.
+Cybercriminals are trying to infiltrate our infrastructure by exploiting network security vulnerabilities in Aerosecure!! Their goal is to gain unauthorized access to critical data. Our mission is to identify their attempts, block their access, and alert our teams for a rapid response.
 
 ---
 
