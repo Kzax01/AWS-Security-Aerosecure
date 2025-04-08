@@ -37,7 +37,7 @@ Cybercriminals are trying to infiltrate our infrastructure by exploiting network
 ---
 
 ## 💥 Impact of the Mission
-This operation strengthens our **threat detection** capabilities within **Airbus'** AWS environment. It demonstrates the importance of monitoring network activity in real-time, reacting swiftly to incidents, and automating responses for a more efficient SOC.
+This operation strengthens our **threat detection** capabilities within an AWS environment. It demonstrates the importance of monitoring network activity in real-time, reacting swiftly to incidents, and automating responses for a more efficient SOC.
 
 - ✅ **Network monitoring** using **VPC Flow Logs**.
 - ✅ **Intrusion detection** with **CloudWatch Logs**.
