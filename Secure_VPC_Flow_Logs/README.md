@@ -54,7 +54,7 @@ This operation strengthens our **threat detection** capabilities within an AWS e
 ---
 
 ## 🚀 Application to AeroSecure
-This project represents a significant step towards an **autonomous AWS SOC**, with the potential to integrate this solution with **AWS Security Hub** for centralized threat analysis. It will enhance the security posture of **Airbus'** infrastructure.
+This project represents a significant step towards an **autonomous AWS SOC**, with the potential to integrate this solution with **AWS Security Hub** for centralized threat analysis. It will enhance the security posture of **Aerosecure'** infrastructure.
 
 ---
 
@@ -74,7 +74,7 @@ We'll deep dive into the fantastic world of SecurityHud & its findings!
 
 ---
 
-🎯 Mission accomplished, agent! 🚀 You've set up an efficient monitoring and detection system to protect **Airbus'** infrastructure. With this approach, potential threats can be swiftly identified and neutralized. Ready for your next mission? 🌟
+🎯 Mission accomplished, agent! 🚀 You've set up an efficient monitoring and detection system to protect **Aerosecure'** infrastructure. With this approach, potential threats can be swiftly identified and neutralized. Ready for your next mission? 🌟
 
 ---
 
