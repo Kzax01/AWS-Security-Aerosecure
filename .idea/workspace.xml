@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2750fc70-962a-4e92-8da4-05536b93027e" name="Changes" comment="Walkthrough update" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Kzax01&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Kzax01/AWS-Security-Aerosecure.git&quot;,
+    &quot;accountId&quot;: &quot;50432f07-ee6c-4323-a836-6686b05f2bd0&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2uQ59G7y5SuVvNdGgPgECyFMesE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kenza/PycharmProjects/AWS-Security-Aerosecure&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kenza\PycharmProjects\AWS-Security-Aerosecure\Data Protection - AWS Key Management Service (KMS)\screenshots" />
+      <recent name="C:\Users\kenza\PycharmProjects\AWS-Security-Aerosecure\SecurityHub\02_Identifying_Threats_AWS_Security_Hub\screenshots" />
+      <recent name="C:\Users\kenza\PycharmProjects\AWS-Security-Aerosecure\Secure_VPC_Flow_Logs\screenshots" />
+      <recent name="C:\Users\kenza\PycharmProjects\AWS-Security-Aerosecure\IAM\02_Monitoring_Users_AWS_IAM\screenshots" />
+      <recent name="C:\Users\kenza\PycharmProjects\AWS-Security-Aerosecure\IAM\01_Limiting_Privileged_Access_IAM\screenshots" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.md" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="AWS-Security-Aerosecure" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\kenza\PycharmProjects\AWS-Security-Aerosecure\main.md" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-4f4e415b4190-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26053.29" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2750fc70-962a-4e92-8da4-05536b93027e" name="Changes" comment="" />
+      <created>1728461898213</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728461898213</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update Aerosecure">
+      <option name="closed" value="true" />
+      <created>1742345187262</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1742345187262</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742517722813</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1742517722813</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742517960663</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1742517960663</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742518001612</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1742518001612</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742527730471</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1742527730471</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742528210624</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1742528210624</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742590350838</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1742590350838</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742593841897</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1742593841897</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742593916241</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1742593916241</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742596596003</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1742596596003</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742597418043</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1742597418043</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742597494581</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1742597494581</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742597558706</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1742597558706</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742597865379</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1742597865379</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742599720669</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1742599720669</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742601770423</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1742601770423</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742673915831</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1742673915831</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742678311382</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1742678311382</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742680366218</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1742680366218</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742680475234</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1742680475234</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742680501436</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1742680501436</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742680567622</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1742680567622</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742683739636</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1742683739636</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742684438933</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1742684438933</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742684954592</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1742684954592</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742687166696</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1742687166696</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742688999534</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1742688999534</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742750392775</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1742750392775</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742750495823</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1742750495823</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742750544843</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1742750544843</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742750579536</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1742750579536</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742768095409</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1742768095409</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742776004270</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1742776004271</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742833579534</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1742833579534</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742833671493</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1742833671493</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742835341928</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1742835341928</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742836009775</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1742836009775</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742836270004</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1742836270004</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742838202274</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1742838202274</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742846716009</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1742846716009</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742847626409</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1742847626409</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1742848223527</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1742848223527</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1743221877796</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1743221877796</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1743222345603</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1743222345603</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1743223595313</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1743223595313</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1743358711739</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1743358711739</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1743359019220</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1743359019220</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1743359278527</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1743359278527</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1743361376193</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1743361376193</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <MESSAGE value="adding files to the Aerosecure project" />
+    <MESSAGE value="update Aerosecure" />
+    <MESSAGE value="Walkthrough update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Walkthrough update" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.md</url>
+          <line>8</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
