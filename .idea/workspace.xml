@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2750fc70-962a-4e92-8da4-05536b93027e" name="Changes" comment="Walkthrough update" />
+    <list default="true" id="2750fc70-962a-4e92-8da4-05536b93027e" name="Changes" comment="Walkthrough update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,14 +96,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728461898213</updated>
-    </task>
-    <task id="LOCAL-00012" summary="update Aerosecure">
-      <option name="closed" value="true" />
-      <created>1742345187262</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1742345187262</updated>
     </task>
     <task id="LOCAL-00013" summary="Walkthrough update">
       <option name="closed" value="true" />
@@ -487,7 +481,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743361376193</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Walkthrough update">
+      <option name="closed" value="true" />
+      <created>1744905614203</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1744905614203</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
